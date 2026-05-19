@@ -1,1582 +1,2772 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Five Star Medical Courier — Houston, TX</title>
-<meta name="description" content="Same-day specimen transport, pharmaceutical delivery, and medical supply logistics across Greater Houston. HIPAA compliant, 24/7."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Five Star Medical Courier — Houston, TX</title>
+  <meta name="description"
+    content="Same-day specimen transport, pharmaceutical delivery, and medical supply logistics across Greater Houston. HIPAA compliant, 24/7." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
+  <style>
+    /* ── TOKENS ─────────────────────────────── */
+    :root {
+      --navy: #07152B;
+      --teal: #0B8F82;
+      --teal-dk: #087268;
+      --gold: #C9962A;
+      --white: #ffffff;
+      --off: #F5F7FA;
+      --border: rgba(7, 21, 43, .1);
+      --text: #1A2E42;
+      --muted: #5A7285;
+      --r: 8px;
+      --max: 1200px;
+      --pad: 100px;
+      --nav-h: 72px;
+      --ease: cubic-bezier(.25, .46, .45, .94);
+      --spring: cubic-bezier(.16, 1, .3, 1);
+    }
 
-/* ── TOKENS ─────────────────────────────── */
-:root {
-  --navy:    #07152B;
-  --teal:    #0B8F82;
-  --teal-dk: #087268;
-  --gold:    #C9962A;
-  --white:   #ffffff;
-  --off:     #F5F7FA;
-  --border:  rgba(7,21,43,.1);
-  --text:    #1A2E42;
-  --muted:   #5A7285;
-  --r:       8px;
-  --max:     1200px;
-  --pad:     100px;
-  --nav-h:   72px;
-  --ease:    cubic-bezier(.25,.46,.45,.94);
-  --spring:  cubic-bezier(.16,1,.3,1);
-}
+    /* ── RESET ──────────────────────────────── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* ── RESET ──────────────────────────────── */
-*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
-html { font-size:16px; scroll-behavior:auto; }
-body {
-  font-family:'DM Sans',sans-serif;
-  color:var(--text);
-  background:#fff;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
-a { text-decoration:none; color:inherit; }
-ul { list-style:none; }
-img { display:block; max-width:100%; }
-button,input,select,textarea { font-family:inherit; outline:none; }
-html.lenis,html.lenis body { height:auto; }
-.lenis.lenis-smooth { scroll-behavior:auto !important; }
-.lenis.lenis-stopped { overflow:hidden; }
+    html {
+      font-size: 16px;
+      scroll-behavior: auto;
+    }
 
-/* ── TYPE ───────────────────────────────── */
-h1 {
-  font-family:'Playfair Display',serif;
-  font-weight:700;
-  font-size:clamp(30px,3.4vw,48px);
-  line-height:1.1;
-  letter-spacing:-.02em;
-}
-h2 {
-  font-family:'Playfair Display',serif;
-  font-weight:700;
-  font-size:clamp(30px,3.6vw,48px);
-  line-height:1.15;
-  letter-spacing:-.015em;
-}
-h3 {
-  font-family:'Playfair Display',serif;
-  font-weight:400;
-  font-size:clamp(18px,2vw,22px);
-  line-height:1.3;
-}
-p { line-height:1.75; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: #fff;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-.eyebrow {
-  font-family:'DM Mono',monospace;
-  font-size:11px; font-weight:500;
-  letter-spacing:.12em; text-transform:uppercase;
-  display:flex; align-items:center; gap:10px;
-  margin-bottom:16px;
-}
-.eyebrow::before {
-  content:''; width:24px; height:1px;
-  background:currentColor; opacity:.5; flex-shrink:0;
-}
-.ey--teal  { color:var(--teal); }
-.ey--gold  { color:var(--gold); }
-.ey--white { color:rgba(255,255,255,.45); }
-.ey--center { justify-content:center; }
-.ey--center::before { display:none; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-/* ── LAYOUT ─────────────────────────────── */
-.wrap  { max-width:var(--max); margin:0 auto; padding:0 2.5rem; }
-.section { padding:var(--pad) 0; }
+    ul {
+      list-style: none;
+    }
 
-/* ── BUTTONS ────────────────────────────── */
-.btn {
-  display:inline-flex; align-items:center; gap:8px;
-  padding:13px 26px; border-radius:4px;
-  font-size:14px; font-weight:500; letter-spacing:.02em;
-  border:1.5px solid transparent;
-  cursor:pointer; white-space:nowrap; line-height:1;
-  transition:transform .2s var(--ease), box-shadow .2s, background .2s, color .2s, border-color .2s;
-}
-.btn:hover { transform:translateY(-1px); }
-.btn--primary   { background:var(--teal); color:#fff; border-color:var(--teal); }
-.btn--primary:hover { background:var(--teal-dk); box-shadow:0 8px 24px rgba(11,143,130,.3); }
-.btn--navy      { background:var(--navy); color:#fff; border-color:var(--navy); }
-.btn--navy:hover { background:#0c1e3b; box-shadow:0 8px 24px rgba(7,21,43,.3); }
-.btn--outline   { background:transparent; color:rgba(255,255,255,.85); border-color:rgba(255,255,255,.35); }
-.btn--outline:hover { border-color:#fff; background:rgba(255,255,255,.08); }
-.btn--outline-teal { background:transparent; color:var(--teal); border-color:var(--teal); }
-.btn--outline-teal:hover { background:var(--teal); color:#fff; }
-.btn--lg { padding:16px 32px; font-size:15px; }
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-/* ── NAV ────────────────────────────────── */
-.site-header {
-  position:fixed; inset:0 0 auto; z-index:900;
-  height:var(--nav-h);
-  transition:background .35s, box-shadow .35s;
-}
-.site-header.scrolled {
-  background:rgba(7,21,43,.97);
-  backdrop-filter:blur(12px);
-  box-shadow:0 1px 0 rgba(255,255,255,.06);
-}
-.nav-inner {
-  display:flex; align-items:center; justify-content:space-between;
-  height:100%; padding:0 2.5rem;
-  max-width:1440px; margin:0 auto;
-}
-.nav-logo { display:flex; align-items:center; gap:10px; }
-.nav-icon {
-  width:34px; height:34px; background:var(--teal); border-radius:6px;
-  display:flex; align-items:center; justify-content:center;
-  color:#fff; font-size:16px; flex-shrink:0;
-}
-.nav-name { font-family:'Playfair Display',serif; font-size:15px; font-weight:700; color:#fff; line-height:1.2; }
-.nav-sub  { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.38); display:block; }
-.nav-links { display:flex; align-items:center; gap:2.25rem; }
-.nav-links a { color:rgba(255,255,255,.65); font-size:14px; transition:color .2s; }
-.nav-links a:hover { color:#fff; }
-.nav-right { display:flex; align-items:center; gap:10px; }
-.nav-burger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:6px; }
-.nav-burger span { display:block; width:22px; height:1.5px; background:#fff; transition:all .3s; }
-.nav-burger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
-.nav-burger.open span:nth-child(2) { opacity:0; }
-.nav-burger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+    button,
+    input,
+    select,
+    textarea {
+      font-family: inherit;
+      outline: none;
+    }
 
-.mobile-nav {
-  position:fixed; inset:0; z-index:850; background:var(--navy);
-  padding:calc(var(--nav-h) + 2.5rem) 2.5rem 3rem;
-  transform:translateX(100%); transition:transform .4s var(--spring);
-}
-.mobile-nav.open { transform:translateX(0); }
-.mobile-nav a {
-  display:block; font-family:'Playfair Display',serif; font-size:26px;
-  color:rgba(255,255,255,.6); padding:14px 0;
-  border-bottom:1px solid rgba(255,255,255,.06); transition:color .2s;
-}
-.mobile-nav a:hover { color:#fff; }
-.mobile-nav-cta { margin-top:2rem; }
+    html.lenis,
+    html.lenis body {
+      height: auto;
+    }
 
-/* ── HERO ───────────────────────────────── */
-.hero {
-  position:relative;
-  height:100vh; height:100dvh;
-  min-height:640px;
-  display:flex; align-items:center;
-  background:var(--navy);
-  overflow:hidden;
-}
-.hero-bg {
-  position:absolute; inset:0;
-  background:url('https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=1600&q=80&auto=format&fit=crop') center/cover no-repeat;
-  opacity:.2;
-  will-change:transform;
-}
-.hero-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(110deg, rgba(7,21,43,.92) 0%, rgba(7,21,43,.65) 55%, rgba(7,21,43,.45) 100%);
-}
-.hero-inner {
-  position:relative; z-index:2; width:100%;
-  padding-top:var(--nav-h);
-  display:flex; align-items:center;
-  justify-content:space-between; gap:4rem;
-}
-.hero-content { max-width:580px; flex:1; min-width:0; }
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
 
-/* ── HERO CROSS VISUAL ──────────────────── */
-.hero-visual {
-  flex-shrink:0;
-  display:flex; align-items:center; justify-content:center;
-  opacity:0; /* GSAP */
-}
-.hero-cross {
-  width:400px; height:400px;
-  clip-path:polygon(33% 0%,67% 0%,67% 33%,100% 33%,100% 67%,67% 67%,67% 100%,33% 100%,33% 67%,0% 67%,0% 33%,33% 33%);
-  overflow:hidden;
-  filter:drop-shadow(0 4px 18px rgba(11,143,130,.5)) drop-shadow(0 24px 64px rgba(0,0,0,.65));
-}
-.hero-cross img { width:100%; height:100%; object-fit:cover; display:block; }
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
 
-/* ── HERO SCROLL INDICATOR ──────────────── */
-.hero-scroll-cue {
-  position:absolute; bottom:2.25rem; left:50%;
-  transform:translateX(-50%);
-  display:flex; flex-direction:column; align-items:center; gap:8px;
-  z-index:10; cursor:pointer; text-decoration:none;
-  opacity:0; /* GSAP */
-  transition:opacity .2s;
-}
-.hero-scroll-cue:hover { opacity:.75 !important; }
-.hero-scroll-mouse {
-  width:22px; height:36px;
-  border:1.5px solid rgba(255,255,255,.32); border-radius:11px;
-  display:flex; justify-content:center; align-items:flex-start; padding-top:6px;
-}
-.hero-scroll-dot {
-  width:3px; height:6px;
-  background:rgba(255,255,255,.65); border-radius:2px;
-  animation:scrollDot 2.2s ease-in-out infinite;
-}
-@keyframes scrollDot {
-  0%,100% { transform:translateY(0);  opacity:1; }
-  60%     { transform:translateY(10px); opacity:.2; }
-}
-.hero-scroll-lbl {
-  font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.15em;
-  text-transform:uppercase; color:rgba(255,255,255,.35);
-}
-.hero-ey {
-  font-family:'DM Mono',monospace; font-size:11px; font-weight:500;
-  letter-spacing:.14em; text-transform:uppercase; color:var(--teal);
-  display:flex; align-items:center; gap:12px;
-  margin-bottom:1.75rem;
-  opacity:0;
-}
-.hero-ey::before { content:''; width:32px; height:1px; background:var(--teal); }
-.hero-h1 { color:#fff; }
-.hero-line { display:block; overflow:hidden; }
-.hero-sub {
-  color:rgba(255,255,255,.62); font-size:17px; font-weight:300; line-height:1.8;
-  max-width:520px; margin-top:1.75rem; opacity:0;
-}
-.hero-btns { display:flex; gap:12px; margin-top:2.5rem; flex-wrap:wrap; opacity:0; }
+    /* ── TYPE ───────────────────────────────── */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(30px, 3.4vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+    }
 
-/* ── SECTION BG (shared dark-section image layer) ── */
-.section-bg {
-  position:absolute; inset:0;
-  background-size:cover; background-position:center; background-repeat:no-repeat;
-  pointer-events:none;
-}
-/* Content inside dark sections floats above the bg image */
-.why > .wrap,
-.cta-banner > .cta-inner,
-.site-footer > .wrap { position:relative; z-index:1; }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(30px, 3.6vw, 48px);
+      line-height: 1.15;
+      letter-spacing: -.015em;
+    }
 
-/* ── STATS STRIP ────────────────────────── */
-.stats-strip { background:var(--navy); border-top:1px solid rgba(255,255,255,.08); position:relative; overflow:hidden; }
-.stats-row {
-  display:grid; grid-template-columns:repeat(3,1fr);
-  max-width:var(--max); margin:0 auto; padding:0 2.5rem;
-}
-.stat-item {
-  padding:28px 0 28px 2.5rem;
-  border-left:1px solid rgba(255,255,255,.08);
-}
-.stat-item:first-child { padding-left:0; border-left:none; }
-.stat-val {
-  font-family:'Playfair Display',serif;
-  font-size:38px; font-weight:700; color:var(--gold); line-height:1;
-}
-.stat-lbl { color:rgba(255,255,255,.48); font-size:13px; margin-top:6px; line-height:1.45; }
+    h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.3;
+    }
 
-/* ── TRUST BAR ──────────────────────────── */
-.trust-bar {
-  background:var(--off); border-bottom:1px solid var(--border);
-  padding:14px 0; overflow:hidden;
-}
-.trust-inner { display:flex; align-items:center; }
-.trust-lbl {
-  font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--muted);
-  padding:0 2rem; white-space:nowrap; flex-shrink:0;
-}
-.trust-track-wrap { overflow:hidden; flex:1; }
-.trust-track { display:flex; animation:marquee 30s linear infinite; width:max-content; }
-.trust-item { color:var(--muted); font-size:13px; padding:0 2rem; border-right:1px solid var(--border); white-space:nowrap; }
-@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    p {
+      line-height: 1.75;
+    }
 
-/* ── ABOUT ──────────────────────────────── */
-.about { background:#fff; }
-.about-grid {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:80px; align-items:start;
-}
-.about-body {
-  color:var(--muted); font-size:16px; font-weight:300; line-height:1.8;
-  margin-top:1.5rem;
-}
-.about-body + .about-body { margin-top:1rem; }
-.about-body b { color:var(--text); font-weight:600; }
-.about-cta { margin-top:2rem; }
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
 
-/* Pillars */
-.pillars { margin-top:2.5rem; }
-.pillar {
-  display:flex; gap:1rem; padding:1.25rem 0;
-  border-bottom:1px solid var(--border);
-}
-.pillar:first-child { border-top:1px solid var(--border); }
-.pillar-dot { width:8px; height:8px; border-radius:50%; background:var(--teal); flex-shrink:0; margin-top:8px; }
-.pillar-title { font-size:15px; font-weight:600; color:var(--text); margin-bottom:3px; }
-.pillar-text  { font-size:14px; color:var(--muted); line-height:1.6; }
+    .eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: currentColor;
+      opacity: .5;
+      flex-shrink: 0;
+    }
 
-/* Stat cards */
-.about-stats { display:flex; flex-direction:column; gap:1.5rem; }
-.about-stat-card {
-  padding:1.75rem 2rem;
-  border:1px solid var(--border); border-radius:var(--r);
-  display:flex; align-items:flex-start; gap:1.5rem;
-  transition:box-shadow .25s, transform .25s;
-}
-.about-stat-card:hover { box-shadow:0 8px 32px rgba(7,21,43,.08); transform:translateY(-2px); }
-.about-stat-num {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(40px,4.5vw,58px);
-  font-weight:900; line-height:1; letter-spacing:-.03em; flex-shrink:0;
-}
-.about-stat-num--teal  { color:var(--teal); }
-.about-stat-num--navy  { color:var(--navy); }
-.about-stat-num--gold  { color:var(--gold); }
-.about-stat-info { padding-top:.4rem; }
-.about-stat-title { font-size:15px; font-weight:600; color:var(--text); }
-.about-stat-desc  { font-size:13px; color:var(--muted); line-height:1.55; margin-top:4px; }
+    .ey--teal {
+      color: var(--teal);
+    }
 
-/* ── SERVICES ───────────────────────────── */
-.services { background:var(--off); }
-.services-hdr { max-width:600px; }
-.services-intro { color:var(--muted); font-size:16px; font-weight:300; line-height:1.8; margin-top:1rem; }
-.services-grid {
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:1.5rem; margin-top:3.5rem;
-}
-.svc-card {
-  background:#fff; border-radius:var(--r);
-  padding:2rem 1.75rem 2.25rem;
-  border:1px solid var(--border);
-  transition:box-shadow .25s, transform .25s, border-color .25s;
-}
-.svc-card:hover {
-  box-shadow:0 12px 40px rgba(7,21,43,.08);
-  transform:translateY(-4px);
-  border-color:rgba(11,143,130,.25);
-}
-.svc-num {
-  font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em;
-  color:var(--teal); margin-bottom:.6rem; display:block;
-}
-.svc-icon  { font-size:26px; margin-bottom:1rem; }
-.svc-title {
-  font-family:'Playfair Display',serif; font-size:19px; font-weight:700;
-  color:var(--navy); margin-bottom:.65rem; line-height:1.25;
-}
-.svc-text  { font-size:14px; color:var(--muted); line-height:1.7; }
+    .ey--gold {
+      color: var(--gold);
+    }
 
-/* ── WHY FIVE STAR ──────────────────────── */
-.why { background:var(--navy); position:relative; overflow:hidden; }
-.why-grid {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:5rem; align-items:start; margin-top:3.5rem;
-}
-.why-h2   { color:#fff; margin-top:1rem; }
-.why-body {
-  color:rgba(255,255,255,.52); font-size:16px; font-weight:300; line-height:1.8;
-  margin-top:1.5rem; max-width:480px;
-}
-.why-quote {
-  border-left:3px solid var(--gold); padding:.875rem 0 .875rem 1.5rem;
-  margin:2.25rem 0;
-}
-.why-quote p {
-  font-family:'Playfair Display',serif; font-style:italic;
-  font-size:18px; color:rgba(255,255,255,.78); line-height:1.65;
-}
-.why-items { display:flex; flex-direction:column; }
-.why-item {
-  display:flex; gap:1.25rem; padding:1.25rem 0;
-  border-bottom:1px solid rgba(255,255,255,.07);
-}
-.why-item:first-child { border-top:1px solid rgba(255,255,255,.07); }
-.why-check {
-  width:22px; height:22px; border-radius:50%;
-  background:rgba(11,143,130,.18); border:1px solid rgba(11,143,130,.4);
-  display:flex; align-items:center; justify-content:center;
-  flex-shrink:0; margin-top:2px; font-size:11px; color:var(--teal);
-}
-.why-item-text { font-size:15px; color:rgba(255,255,255,.6); line-height:1.6; }
-.why-item-text strong { color:#fff; font-weight:600; }
+    .ey--white {
+      color: rgba(255, 255, 255, .45);
+    }
 
-.why-metrics {
-  display:grid; grid-template-columns:repeat(2,1fr);
-  gap:1px; background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:var(--r); overflow:hidden; margin-top:2rem;
-}
-.why-metric { background:rgba(255,255,255,.03); padding:1.75rem; transition:background .2s; }
-.why-metric:hover { background:rgba(255,255,255,.06); }
-.why-metric-val {
-  font-family:'Playfair Display',serif;
-  font-size:34px; font-weight:700; color:var(--gold); line-height:1;
-}
-.why-metric-lbl { font-size:13px; color:rgba(255,255,255,.45); margin-top:6px; line-height:1.4; }
+    .ey--center {
+      justify-content: center;
+    }
 
-/* ── COVERAGE ───────────────────────────── */
-.coverage { background:#fff; }
-.coverage-grid {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:5rem; align-items:start;
-}
-.coverage-body { color:var(--muted); font-size:16px; font-weight:300; line-height:1.8; margin-top:1.5rem; }
-.cov-features  { margin-top:2.5rem; }
-.cov-feat {
-  display:flex; gap:1rem; padding:1.25rem 0;
-  border-bottom:1px solid var(--border);
-}
-.cov-feat:first-child { border-top:1px solid var(--border); }
-.cov-ico {
-  width:40px; height:40px; background:rgba(11,143,130,.08); border-radius:var(--r);
-  display:flex; align-items:center; justify-content:center;
-  font-size:18px; flex-shrink:0;
-}
-.cov-title { font-size:14px; font-weight:600; color:var(--text); margin-bottom:3px; }
-.cov-txt   { font-size:13px; color:var(--muted); line-height:1.55; }
+    .ey--center::before {
+      display: none;
+    }
 
-.cov-card {
-  background:var(--navy); border-radius:var(--r); padding:2.5rem;
-}
-.cov-card-lbl {
-  font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--teal); margin-bottom:1.25rem; display:block;
-}
-.chips { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:2rem; }
-.chip {
-  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12);
-  border-radius:3px; padding:6px 12px; font-size:12px; color:rgba(255,255,255,.65);
-  transition:background .2s, border-color .2s, color .2s;
-}
-.chip:hover { background:rgba(11,143,130,.2); border-color:rgba(11,143,130,.4); color:#fff; }
-.fac-lbl {
-  font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.12em;
-  text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:1rem; display:block;
-}
-.fac-list { display:flex; flex-direction:column; gap:10px; }
-.fac-item { display:flex; align-items:center; gap:10px; font-size:13px; color:rgba(255,255,255,.6); }
-.fac-item::before { content:''; width:4px; height:4px; border-radius:50%; background:var(--teal); flex-shrink:0; }
+    /* ── LAYOUT ─────────────────────────────── */
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
 
-/* ── COMPLIANCE ─────────────────────────── */
-.compliance { background:var(--off); }
-.comp-hdr   { text-align:center; max-width:580px; margin:0 auto; }
-.comp-intro { color:var(--muted); font-size:16px; font-weight:300; line-height:1.8; margin-top:1.25rem; }
-.comp-grid  {
-  display:grid; grid-template-columns:repeat(4,1fr);
-  gap:1.5rem; margin-top:3.5rem; align-items:start;
-}
-.comp-card {
-  background:#fff; border-radius:var(--r);
-  padding:2rem 1.75rem;
-  border-top:3px solid var(--teal);
-  transition:transform .25s, box-shadow .25s;
-}
-.comp-card:hover { transform:translateY(-4px); box-shadow:0 12px 36px rgba(7,21,43,.08); }
-.comp-icon  { font-size:24px; margin-bottom:1rem; }
-.comp-title { font-size:15px; font-weight:600; color:var(--text); margin-bottom:8px; }
-.comp-text  { font-size:13px; color:var(--muted); line-height:1.65; }
+    .section {
+      padding: var(--pad) 0;
+    }
 
-/* ── TESTIMONIALS ───────────────────────── */
-.testimonials { background:#fff; overflow:hidden; }
-.testimonials-hdr { max-width:560px; }
-.t-swiper { margin-top:3.5rem; padding-bottom:3.5rem !important; }
-.t-card {
-  background:var(--off); border-radius:var(--r);
-  padding:2.25rem; border-left:3px solid var(--teal); height:auto;
-}
-.t-card-q {
-  font-family:'Playfair Display',serif; font-style:italic;
-  font-size:16px; line-height:1.7; color:var(--text);
-}
-.t-card-q::before {
-  content:'\201C'; display:block; font-size:48px; color:var(--teal);
-  line-height:.75; margin-bottom:12px; font-style:normal;
-}
-.t-divider { border:none; border-top:1px solid var(--border); margin:1.5rem 0 1.25rem; }
-.t-name { font-size:14px; font-weight:600; color:var(--text); }
-.t-role { font-size:12px; color:var(--muted); margin-top:3px; }
-.t-swiper .swiper-pagination-bullet         { background:var(--teal); opacity:.25; }
-.t-swiper .swiper-pagination-bullet-active  { opacity:1; }
-.t-swiper .swiper-button-next::after,
-.t-swiper .swiper-button-prev::after        { font-size:14px; color:var(--teal); }
+    /* ── BUTTONS ────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: .02em;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      line-height: 1;
+      transition: transform .2s var(--ease), box-shadow .2s, background .2s, color .2s, border-color .2s;
+    }
 
-/* ── CTA BANNER ─────────────────────────── */
-.cta-banner { background:var(--navy); position:relative; overflow:hidden; }
-.cta-inner  {
-  text-align:center; padding:100px 2.5rem;
-  max-width:680px; margin:0 auto;
-}
-.cta-inner h2  { color:#fff; font-weight:400; }
-.cta-inner h2 strong { font-weight:700; }
-.cta-text {
-  color:rgba(255,255,255,.52); font-size:17px; font-weight:300;
-  line-height:1.8; margin-top:1.5rem;
-}
-.cta-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:2.5rem; }
-.cta-divider { width:40px; height:1px; background:var(--teal); margin:0 auto 2rem; }
+    .btn:hover {
+      transform: translateY(-1px);
+    }
 
-/* ── CONTACT ────────────────────────────── */
-.contact { background:#fff; }
-.contact-grid {
-  display:grid; grid-template-columns:1fr 1.5fr;
-  gap:5rem; align-items:start;
-}
-.contact-body { color:var(--muted); font-size:16px; font-weight:300; line-height:1.8; margin-top:1.5rem; }
-.ci-list { margin-top:2.5rem; }
-.ci-item {
-  display:flex; gap:1rem; padding:1.25rem 0;
-  border-bottom:1px solid var(--border);
-}
-.ci-item:first-child { border-top:1px solid var(--border); }
-.ci-ico {
-  width:40px; height:40px; background:rgba(11,143,130,.07); border-radius:var(--r);
-  display:flex; align-items:center; justify-content:center;
-  font-size:17px; flex-shrink:0;
-}
-.ci-lbl { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
-.ci-val { font-size:15px; font-weight:500; color:var(--text); }
-.ci-val a:hover { color:var(--teal); }
-.ci-sub { font-size:12px; color:var(--muted); margin-top:3px; }
+    .btn--primary {
+      background: var(--teal);
+      color: #fff;
+      border-color: var(--teal);
+    }
 
-.form-wrap { background:var(--off); border-radius:var(--r); padding:2.5rem; }
-.form-wrap h3 { font-size:22px; margin-bottom:2rem; }
-.frow  { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-.fg    { margin-bottom:1.25rem; }
-.flbl  { display:block; font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:7px; }
-.fctrl {
-  width:100%; padding:12px 14px;
-  border:1px solid var(--border); border-radius:6px;
-  font-size:14px; color:var(--text); background:#fff;
-  transition:border-color .2s, box-shadow .2s;
-  appearance:none; -webkit-appearance:none;
-}
-.fctrl:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(11,143,130,.1); outline:none; }
-textarea.fctrl { resize:vertical; min-height:110px; line-height:1.6; }
-select.fctrl {
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%235A7285' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat; background-position:right 14px center; padding-right:36px;
-}
-.f-submit { width:100%; justify-content:center; padding:15px; font-size:15px; }
-.f-success { display:none; text-align:center; padding:3rem 2rem; }
-.f-success-icon  { font-size:44px; }
-.f-success-title { font-family:'Playfair Display',serif; font-size:22px; margin:1rem 0 .75rem; }
-.f-success-text  { color:var(--muted); font-size:15px; }
+    .btn--primary:hover {
+      background: var(--teal-dk);
+      box-shadow: 0 8px 24px rgba(11, 143, 130, .3);
+    }
 
-/* ── FOOTER ─────────────────────────────── */
-.site-footer { background:var(--navy); color:rgba(255,255,255,.45); padding:72px 0 40px; position:relative; overflow:hidden; }
-.footer-grid {
-  display:grid; grid-template-columns:1.5fr 1fr 1fr 1.25fr;
-  gap:3rem; margin-bottom:4rem;
-}
-.f-brand-name { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:#fff; }
-.f-brand-sub  { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--teal); display:block; margin-top:2px; }
-.f-tagline    { font-size:14px; line-height:1.7; margin-top:1.25rem; color:rgba(255,255,255,.32); }
-.f-contact-info { margin-top:1.5rem; }
-.f-contact-line { font-size:13px; margin-top:8px; color:rgba(255,255,255,.32); }
-.f-contact-line a:hover { color:rgba(255,255,255,.75); }
-.f-col-lbl { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.22); margin-bottom:1.5rem; }
-.f-links { display:flex; flex-direction:column; gap:10px; }
-.f-links a { font-size:14px; color:rgba(255,255,255,.4); transition:color .2s; }
-.f-links a:hover { color:rgba(255,255,255,.82); }
-.f-cta-desc { font-size:13px; color:rgba(255,255,255,.32); line-height:1.55; margin-bottom:1.25rem; }
-.f-phone    { font-size:15px; font-weight:500; color:var(--teal); }
-.f-divider  { border:none; border-top:1px solid rgba(255,255,255,.07); margin:0 0 2rem; }
-.f-bottom   { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
-.f-copy     { font-size:12px; color:rgba(255,255,255,.25); }
-.f-legal    { display:flex; gap:1.5rem; }
-.f-legal a  { font-size:12px; color:rgba(255,255,255,.25); transition:color .2s; }
-.f-legal a:hover { color:rgba(255,255,255,.6); }
+    .btn--navy {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
 
-/* ── SECTION IMAGE ELEMENTS ─────────────── */
-.about-photo { border-radius:var(--r); overflow:hidden; margin-bottom:1.5rem; }
-.about-photo img {
-  width:100%; height:240px; object-fit:cover; display:block;
-  transition:transform .65s var(--ease);
-}
-.about-photo:hover img { transform:scale(1.04); }
+    .btn--navy:hover {
+      background: #0c1e3b;
+      box-shadow: 0 8px 24px rgba(7, 21, 43, .3);
+    }
 
-.why-col-photo { border-radius:var(--r); overflow:hidden; margin:1.75rem 0; }
-.why-col-photo img {
-  width:100%; height:195px; object-fit:cover; display:block;
-  filter:brightness(.82);
-  transition:transform .65s var(--ease), filter .4s;
-}
-.why-col-photo:hover img { transform:scale(1.04); filter:brightness(.96); }
+    .btn--outline {
+      background: transparent;
+      color: rgba(255, 255, 255, .85);
+      border-color: rgba(255, 255, 255, .35);
+    }
 
-.section-band {
-  position:relative; border-radius:var(--r); overflow:hidden;
-  height:300px; margin-top:3rem;
-}
-.section-band img { width:100%; height:100%; object-fit:cover; display:block; }
-.section-band-lbl {
-  position:absolute; bottom:0; left:0; right:0;
-  padding:1.25rem 1.75rem;
-  background:linear-gradient(to top, rgba(7,21,43,.84), transparent);
-  font-family:'DM Mono',monospace; font-size:11px;
-  letter-spacing:.11em; text-transform:uppercase; color:rgba(255,255,255,.72);
-}
+    .btn--outline:hover {
+      border-color: #fff;
+      background: rgba(255, 255, 255, .08);
+    }
 
-/* ── RESPONSIVE ─────────────────────────── */
-@media (max-width:1100px) {
-  :root { --pad:80px; }
-  .footer-grid { grid-template-columns:1fr 1fr; }
-  .hero-cross  { width:310px; height:310px; }
-}
-@media (max-width:900px) {
-  :root { --pad:64px; }
-  .hero-visual { display:none; }
-  .hero-inner  { display:block; }
-  .nav-links,.nav-right { display:none; }
-  .nav-burger { display:flex; }
-  .about-grid    { grid-template-columns:1fr; gap:3.5rem; }
-  .why-grid      { grid-template-columns:1fr; gap:3rem; }
-  .coverage-grid { grid-template-columns:1fr; gap:3rem; }
-  .contact-grid  { grid-template-columns:1fr; gap:3rem; }
-  .services-grid { grid-template-columns:repeat(2,1fr); }
-  .comp-grid     { grid-template-columns:repeat(2,1fr); }
-  .stats-row     { grid-template-columns:1fr; }
-  .stat-item     { padding:20px 0; border-left:none; border-top:1px solid rgba(255,255,255,.08); }
-  .stat-item:first-child { border-top:none; }
-}
-@media (max-width:640px) {
-  :root { --pad:56px; }
-  .hero { min-height:580px; }
-  .section-band { height:200px; }
-  .about-photo img { height:180px; }
-  .services-grid { grid-template-columns:1fr; }
-  .why-metrics   { grid-template-columns:1fr; }
-  .comp-grid     { grid-template-columns:1fr; }
-  .frow          { grid-template-columns:1fr; }
-  .footer-grid   { grid-template-columns:1fr; }
-  .wrap          { padding:0 1.5rem; }
-  .nav-inner     { padding:0 1.5rem; }
-  .hero-btns     { flex-direction:column; }
-  .cta-btns      { flex-direction:column; align-items:center; }
-  .mobile-nav    { padding:calc(var(--nav-h) + 2rem) 1.5rem 3rem; }
-}
+    .btn--outline-teal {
+      background: transparent;
+      color: var(--teal);
+      border-color: var(--teal);
+    }
 
-</style>
+    .btn--outline-teal:hover {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .btn--lg {
+      padding: 16px 32px;
+      font-size: 15px;
+    }
+
+    /* ── NAV ────────────────────────────────── */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 900;
+      height: var(--nav-h);
+      transition: background .35s, box-shadow .35s;
+    }
+
+    .site-header.scrolled {
+      background: rgba(7, 21, 43, .97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, .06);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      padding: 0 2.5rem;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-icon {
+      width: 34px;
+      height: 34px;
+      background: var(--teal);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .nav-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .38);
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, .65);
+      font-size: 14px;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+    }
+
+    .nav-burger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: #fff;
+      transition: all .3s;
+    }
+
+    .nav-burger.open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+
+    .nav-burger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-burger.open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    .mobile-nav {
+      position: fixed;
+      inset: 0;
+      z-index: 850;
+      background: var(--navy);
+      padding: calc(var(--nav-h) + 2.5rem) 2.5rem 3rem;
+      transform: translateX(100%);
+      transition: transform .4s var(--spring);
+    }
+
+    .mobile-nav.open {
+      transform: translateX(0);
+    }
+
+    .mobile-nav a {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: rgba(255, 255, 255, .6);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      transition: color .2s;
+    }
+
+    .mobile-nav a:hover {
+      color: #fff;
+    }
+
+    .mobile-nav-cta {
+      margin-top: 2rem;
+    }
+
+    /* ── HERO ───────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      height: 100dvh;
+      min-height: 640px;
+      display: flex;
+      align-items: center;
+      background: var(--navy);
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=1600&q=80&auto=format&fit=crop') center/cover no-repeat;
+      opacity: .2;
+      will-change: transform;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, rgba(7, 21, 43, .92) 0%, rgba(7, 21, 43, .65) 55%, rgba(7, 21, 43, .45) 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding-top: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+    }
+
+    .hero-content {
+      max-width: 580px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* ── HERO CROSS VISUAL ──────────────────── */
+    .hero-visual {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      /* GSAP */
+    }
+
+    .hero-cross {
+      width: 400px;
+      height: 400px;
+      clip-path: polygon(33% 0%, 67% 0%, 67% 33%, 100% 33%, 100% 67%, 67% 67%, 67% 100%, 33% 100%, 33% 67%, 0% 67%, 0% 33%, 33% 33%);
+      overflow: hidden;
+      filter: drop-shadow(0 4px 18px rgba(11, 143, 130, .5)) drop-shadow(0 24px 64px rgba(0, 0, 0, .65));
+    }
+
+    .hero-cross img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── HERO SCROLL INDICATOR ──────────────── */
+    .hero-scroll-cue {
+      position: absolute;
+      bottom: 2.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      z-index: 10;
+      cursor: pointer;
+      text-decoration: none;
+      opacity: 0;
+      /* GSAP */
+      transition: opacity .2s;
+    }
+
+    .hero-scroll-cue:hover {
+      opacity: .75 !important;
+    }
+
+    .hero-scroll-mouse {
+      width: 22px;
+      height: 36px;
+      border: 1.5px solid rgba(255, 255, 255, .32);
+      border-radius: 11px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 6px;
+    }
+
+    .hero-scroll-dot {
+      width: 3px;
+      height: 6px;
+      background: rgba(255, 255, 255, .65);
+      border-radius: 2px;
+      animation: scrollDot 2.2s ease-in-out infinite;
+    }
+
+    @keyframes scrollDot {
+
+      0%,
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      60% {
+        transform: translateY(10px);
+        opacity: .2;
+      }
+    }
+
+    .hero-scroll-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .35);
+    }
+
+    .hero-ey {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.75rem;
+      opacity: 0;
+    }
+
+    .hero-ey::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--teal);
+    }
+
+    .hero-h1 {
+      color: #fff;
+    }
+
+    .hero-line {
+      display: block;
+      overflow: hidden;
+    }
+
+    .hero-sub {
+      color: rgba(255, 255, 255, .62);
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 520px;
+      margin-top: 1.75rem;
+      opacity: 0;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+      opacity: 0;
+    }
+
+    /* ── SECTION BG (shared dark-section image layer) ── */
+    .section-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      pointer-events: none;
+    }
+
+    /* Content inside dark sections floats above the bg image */
+    .why>.wrap,
+    .cta-banner>.cta-inner,
+    .site-footer>.wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── STATS STRIP ────────────────────────── */
+    .stats-strip {
+      background: var(--navy);
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    .stat-item {
+      padding: 28px 0 28px 2.5rem;
+      border-left: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .stat-item:first-child {
+      padding-left: 0;
+      border-left: none;
+    }
+
+    .stat-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-lbl {
+      color: rgba(255, 255, 255, .48);
+      font-size: 13px;
+      margin-top: 6px;
+      line-height: 1.45;
+    }
+
+    /* ── TRUST BAR ──────────────────────────── */
+    .trust-bar {
+      background: var(--off);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+      overflow: hidden;
+    }
+
+    .trust-inner {
+      display: flex;
+      align-items: center;
+    }
+
+    .trust-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0 2rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .trust-track-wrap {
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .trust-track {
+      display: flex;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+
+    .trust-item {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 0 2rem;
+      border-right: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    /* ── ABOUT ──────────────────────────────── */
+    .about {
+      background: #fff;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-body {
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-top: 1.5rem;
+    }
+
+    .about-body+.about-body {
+      margin-top: 1rem;
+    }
+
+    .about-body b {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .about-cta {
+      margin-top: 2rem;
+    }
+
+    /* Pillars */
+    .pillars {
+      margin-top: 2.5rem;
+    }
+
+    .pillar {
+      display: flex;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pillar:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .pillar-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    .pillar-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .pillar-text {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Stat cards */
+    .about-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .about-stat-card {
+      padding: 1.75rem 2rem;
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      transition: box-shadow .25s, transform .25s;
+    }
+
+    .about-stat-card:hover {
+      box-shadow: 0 8px 32px rgba(7, 21, 43, .08);
+      transform: translateY(-2px);
+    }
+
+    .about-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 4.5vw, 58px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -.03em;
+      flex-shrink: 0;
+    }
+
+    .about-stat-num--teal {
+      color: var(--teal);
+    }
+
+    .about-stat-num--navy {
+      color: var(--navy);
+    }
+
+    .about-stat-num--gold {
+      color: var(--gold);
+    }
+
+    .about-stat-info {
+      padding-top: .4rem;
+    }
+
+    .about-stat-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .about-stat-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-top: 4px;
+    }
+
+    /* ── SERVICES ───────────────────────────── */
+    .services {
+      background: var(--off);
+    }
+
+    .services-hdr {
+      max-width: 600px;
+    }
+
+    .services-intro {
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-top: 1rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .svc-card {
+      background: #fff;
+      border-radius: var(--r);
+      padding: 2rem 1.75rem 2.25rem;
+      border: 1px solid var(--border);
+      transition: box-shadow .25s, transform .25s, border-color .25s;
+    }
+
+    .svc-card:hover {
+      box-shadow: 0 12px 40px rgba(7, 21, 43, .08);
+      transform: translateY(-4px);
+      border-color: rgba(11, 143, 130, .25);
+    }
+
+    .svc-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .08em;
+      color: var(--teal);
+      margin-bottom: .6rem;
+      display: block;
+    }
+
+    .svc-icon {
+      font-size: 26px;
+      margin-bottom: 1rem;
+    }
+
+    .svc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .65rem;
+      line-height: 1.25;
+    }
+
+    .svc-text {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── WHY FIVE STAR ──────────────────────── */
+    .why {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 3.5rem;
+    }
+
+    .why-h2 {
+      color: #fff;
+      margin-top: 1rem;
+    }
+
+    .why-body {
+      color: rgba(255, 255, 255, .52);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-top: 1.5rem;
+      max-width: 480px;
+    }
+
+    .why-quote {
+      border-left: 3px solid var(--gold);
+      padding: .875rem 0 .875rem 1.5rem;
+      margin: 2.25rem 0;
+    }
+
+    .why-quote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: rgba(255, 255, 255, .78);
+      line-height: 1.65;
+    }
+
+    .why-items {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .why-item {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .07);
+    }
+
+    .why-item:first-child {
+      border-top: 1px solid rgba(255, 255, 255, .07);
+    }
+
+    .why-check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(11, 143, 130, .18);
+      border: 1px solid rgba(11, 143, 130, .4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 11px;
+      color: var(--teal);
+    }
+
+    .why-item-text {
+      font-size: 15px;
+      color: rgba(255, 255, 255, .6);
+      line-height: 1.6;
+    }
+
+    .why-item-text strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .why-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: var(--r);
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+
+    .why-metric {
+      background: rgba(255, 255, 255, .03);
+      padding: 1.75rem;
+      transition: background .2s;
+    }
+
+    .why-metric:hover {
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .why-metric-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .why-metric-lbl {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .45);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* ── COVERAGE ───────────────────────────── */
+    .coverage {
+      background: #fff;
+    }
+
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .coverage-body {
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-top: 1.5rem;
+    }
+
+    .cov-features {
+      margin-top: 2.5rem;
+    }
+
+    .cov-feat {
+      display: flex;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cov-feat:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .cov-ico {
+      width: 40px;
+      height: 40px;
+      background: rgba(11, 143, 130, .08);
+      border-radius: var(--r);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .cov-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .cov-txt {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .cov-card {
+      background: var(--navy);
+      border-radius: var(--r);
+      padding: 2.5rem;
+    }
+
+    .cov-card-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 2rem;
+    }
+
+    .chip {
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 3px;
+      padding: 6px 12px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, .65);
+      transition: background .2s, border-color .2s, color .2s;
+    }
+
+    .chip:hover {
+      background: rgba(11, 143, 130, .2);
+      border-color: rgba(11, 143, 130, .4);
+      color: #fff;
+    }
+
+    .fac-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .3);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .fac-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .fac-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, .6);
+    }
+
+    .fac-item::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+
+    /* ── COMPLIANCE ─────────────────────────── */
+    .compliance {
+      background: var(--off);
+    }
+
+    .comp-hdr {
+      text-align: center;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .comp-intro {
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-top: 1.25rem;
+    }
+
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+      align-items: start;
+    }
+
+    .comp-card {
+      background: #fff;
+      border-radius: var(--r);
+      padding: 2rem 1.75rem;
+      border-top: 3px solid var(--teal);
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .comp-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(7, 21, 43, .08);
+    }
+
+    .comp-icon {
+      font-size: 24px;
+      margin-bottom: 1rem;
+    }
+
+    .comp-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .comp-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── TESTIMONIALS ───────────────────────── */
+    .testimonials {
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .testimonials-hdr {
+      max-width: 560px;
+    }
+
+    .t-swiper {
+      margin-top: 3.5rem;
+      padding-bottom: 3.5rem !important;
+    }
+
+    .t-card {
+      background: var(--off);
+      border-radius: var(--r);
+      padding: 2.25rem;
+      border-left: 3px solid var(--teal);
+      height: auto;
+    }
+
+    .t-card-q {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .t-card-q::before {
+      content: '\201C';
+      display: block;
+      font-size: 48px;
+      color: var(--teal);
+      line-height: .75;
+      margin-bottom: 12px;
+      font-style: normal;
+    }
+
+    .t-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.5rem 0 1.25rem;
+    }
+
+    .t-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .t-role {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .t-swiper .swiper-pagination-bullet {
+      background: var(--teal);
+      opacity: .25;
+    }
+
+    .t-swiper .swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+
+    .t-swiper .swiper-button-next::after,
+    .t-swiper .swiper-button-prev::after {
+      font-size: 14px;
+      color: var(--teal);
+    }
+
+    /* ── CTA BANNER ─────────────────────────── */
+    .cta-banner {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-inner {
+      text-align: center;
+      padding: 100px 2.5rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .cta-inner h2 {
+      color: #fff;
+      font-weight: 400;
+    }
+
+    .cta-inner h2 strong {
+      font-weight: 700;
+    }
+
+    .cta-text {
+      color: rgba(255, 255, 255, .52);
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-top: 1.5rem;
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+
+    .cta-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--teal);
+      margin: 0 auto 2rem;
+    }
+
+    /* ── CONTACT ────────────────────────────── */
+    .contact {
+      background: #fff;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-body {
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-top: 1.5rem;
+    }
+
+    .ci-list {
+      margin-top: 2.5rem;
+    }
+
+    .ci-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ci-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .ci-ico {
+      width: 40px;
+      height: 40px;
+      background: rgba(11, 143, 130, .07);
+      border-radius: var(--r);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    .ci-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .ci-val {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .ci-val a:hover {
+      color: var(--teal);
+    }
+
+    .ci-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .form-wrap {
+      background: var(--off);
+      border-radius: var(--r);
+      padding: 2.5rem;
+    }
+
+    .form-wrap h3 {
+      font-size: 22px;
+      margin-bottom: 2rem;
+    }
+
+    .frow {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .fg {
+      margin-bottom: 1.25rem;
+    }
+
+    .flbl {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .fctrl {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 14px;
+      color: var(--text);
+      background: #fff;
+      transition: border-color .2s, box-shadow .2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .fctrl:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(11, 143, 130, .1);
+      outline: none;
+    }
+
+    textarea.fctrl {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.6;
+    }
+
+    select.fctrl {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%235A7285' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .f-submit {
+      width: 100%;
+      justify-content: center;
+      padding: 15px;
+      font-size: 15px;
+    }
+
+    .f-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .f-success-icon {
+      font-size: 44px;
+    }
+
+    .f-success-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin: 1rem 0 .75rem;
+    }
+
+    .f-success-text {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* ── FOOTER ─────────────────────────────── */
+    .site-footer {
+      background: var(--navy);
+      color: rgba(255, 255, 255, .45);
+      padding: 72px 0 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.25fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .f-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .f-brand-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .f-tagline {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-top: 1.25rem;
+      color: rgba(255, 255, 255, .32);
+    }
+
+    .f-contact-info {
+      margin-top: 1.5rem;
+    }
+
+    .f-contact-line {
+      font-size: 13px;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, .32);
+    }
+
+    .f-contact-line a:hover {
+      color: rgba(255, 255, 255, .75);
+    }
+
+    .f-col-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .22);
+      margin-bottom: 1.5rem;
+    }
+
+    .f-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .f-links a {
+      font-size: 14px;
+      color: rgba(255, 255, 255, .4);
+      transition: color .2s;
+    }
+
+    .f-links a:hover {
+      color: rgba(255, 255, 255, .82);
+    }
+
+    .f-cta-desc {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .32);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+    }
+
+    .f-phone {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--teal);
+    }
+
+    .f-divider {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, .07);
+      margin: 0 0 2rem;
+    }
+
+    .f-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .f-copy {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .25);
+    }
+
+    .f-legal {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .f-legal a {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .25);
+      transition: color .2s;
+    }
+
+    .f-legal a:hover {
+      color: rgba(255, 255, 255, .6);
+    }
+
+    /* ── SECTION IMAGE ELEMENTS ─────────────── */
+    .about-photo {
+      border-radius: var(--r);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+      transition: transform .65s var(--ease);
+    }
+
+    .about-photo:hover img {
+      transform: scale(1.04);
+    }
+
+    .why-col-photo {
+      border-radius: var(--r);
+      overflow: hidden;
+      margin: 1.75rem 0;
+    }
+
+    .why-col-photo img {
+      width: 100%;
+      height: 195px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(.82);
+      transition: transform .65s var(--ease), filter .4s;
+    }
+
+    .why-col-photo:hover img {
+      transform: scale(1.04);
+      filter: brightness(.96);
+    }
+
+    .section-band {
+      position: relative;
+      border-radius: var(--r);
+      overflow: hidden;
+      height: 300px;
+      margin-top: 3rem;
+    }
+
+    .section-band img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .section-band-lbl {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.25rem 1.75rem;
+      background: linear-gradient(to top, rgba(7, 21, 43, .84), transparent);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .72);
+    }
+
+    /* ── RESPONSIVE ─────────────────────────── */
+    @media (max-width:1100px) {
+      :root {
+        --pad: 80px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-cross {
+        width: 310px;
+        height: 310px;
+      }
+    }
+
+    @media (max-width:900px) {
+      :root {
+        --pad: 64px;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .hero-inner {
+        display: block;
+      }
+
+      .nav-links,
+      .nav-right {
+        display: none;
+      }
+
+      .nav-burger {
+        display: flex;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .coverage-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .comp-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-item {
+        padding: 20px 0;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, .08);
+      }
+
+      .stat-item:first-child {
+        border-top: none;
+      }
+    }
+
+    @media (max-width:640px) {
+      :root {
+        --pad: 56px;
+      }
+
+      .hero {
+        min-height: 580px;
+      }
+
+      .section-band {
+        height: 200px;
+      }
+
+      .about-photo img {
+        height: 180px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .comp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .frow {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .wrap {
+        padding: 0 1.5rem;
+      }
+
+      .nav-inner {
+        padding: 0 1.5rem;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+      }
+
+      .cta-btns {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .mobile-nav {
+        padding: calc(var(--nav-h) + 2rem) 1.5rem 3rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobileNav">
-  <a href="#about"      onclick="closeNav()">About</a>
-  <a href="#services"   onclick="closeNav()">Services</a>
-  <a href="#coverage"   onclick="closeNav()">Coverage</a>
-  <a href="#compliance" onclick="closeNav()">Compliance</a>
-  <a href="#contact"    onclick="closeNav()">Contact</a>
-  <div class="mobile-nav-cta">
-    <a href="#contact" class="btn btn--primary btn--lg" onclick="closeNav()">Get a Quote</a>
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#about" onclick="closeNav()">About</a>
+    <a href="#services" onclick="closeNav()">Services</a>
+    <a href="#coverage" onclick="closeNav()">Coverage</a>
+    <a href="#compliance" onclick="closeNav()">Compliance</a>
+    <a href="#contact" onclick="closeNav()">Contact</a>
+    <div class="mobile-nav-cta">
+      <a href="#contact" class="btn btn--primary btn--lg" onclick="closeNav()">Get a Quote</a>
+    </div>
   </div>
-</div>
 
-<!-- HEADER -->
-<header class="site-header" id="siteHeader">
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <div class="nav-icon">★</div>
-      <div>
-        <div class="nav-name">Five Star</div>
-        <span class="nav-sub">Medical Courier</span>
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-icon">★</div>
+        <div>
+          <div class="nav-name">Five Star</div>
+          <span class="nav-sub">Medical Courier</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#coverage">Coverage</a></li>
+        <li><a href="#compliance">Compliance</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="tel:7138385356" class="btn btn--outline" style="font-size:13px">(713) 838-5356</a>
+        <a href="#contact" class="btn btn--primary">Get a Quote</a>
       </div>
+      <button class="nav-burger" id="navBurger" onclick="toggleNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-inner wrap">
+      <div class="hero-content">
+        <div class="hero-ey" id="heroEy">Medical Courier Service</div>
+        <h1 class="hero-h1" id="heroH1"
+          aria-label="Healthcare Logistics For People Who want Quick and Careful Delivery">
+          <span class="hero-line">Healthcare</span>
+          <span class="hero-line">Logistics Built</span>
+          <span class="hero-line">for the People</span>
+          <span class="hero-line">Who Deliver Care</span>
+        </h1>
+        <p class="hero-sub" id="heroSub">
+          Five Star connects hospitals, laboratories, and healthcare facilities with same-day specimen transport,
+          pharmaceutical delivery, and supply logistics — handled with care, compliance, and precision every time.
+        </p>
+        <div class="hero-btns" id="heroBtns">
+          <a href="#contact" class="btn btn--primary btn--lg">Request a Pickup</a>
+          <a href="#services" class="btn btn--outline btn--lg">View Our Services</a>
+        </div>
+      </div>
+
+      <!-- Cross-shaped image visual -->
+      <div class="hero-visual" id="heroVisual">
+        <div class="hero-cross">
+          <img
+            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=85&auto=format&fit=crop&crop=center"
+            alt="Healthcare professional" />
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <a href="#about" class="hero-scroll-cue" id="heroScroll" aria-label="Scroll down">
+      <div class="hero-scroll-mouse">
+        <div class="hero-scroll-dot"></div>
+      </div>
+      <span class="hero-scroll-lbl">Scroll</span>
     </a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#coverage">Coverage</a></li>
-      <li><a href="#compliance">Compliance</a></li>
-    </ul>
-    <div class="nav-right">
-      <a href="tel:7138385356" class="btn btn--outline" style="font-size:13px">(713) 838-5356</a>
-      <a href="#contact" class="btn btn--primary">Get a Quote</a>
-    </div>
-    <button class="nav-burger" id="navBurger" onclick="toggleNav()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-bg" id="heroBg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-inner wrap">
-    <div class="hero-content">
-      <div class="hero-ey" id="heroEy">Medical Courier Service</div>
-      <h1 class="hero-h1" id="heroH1" aria-label="Healthcare Logistics Built for the People Who Deliver Care">
-        <span class="hero-line">Healthcare</span>
-        <span class="hero-line">Logistics Built</span>
-        <span class="hero-line">for the People</span>
-        <span class="hero-line">Who Deliver Care</span>
-      </h1>
-      <p class="hero-sub" id="heroSub">
-        Five Star connects hospitals, laboratories, and healthcare facilities with same-day specimen transport, pharmaceutical delivery, and supply logistics — handled with care, compliance, and precision every time.
-      </p>
-      <div class="hero-btns" id="heroBtns">
-        <a href="#contact" class="btn btn--primary btn--lg">Request a Pickup</a>
-        <a href="#services" class="btn btn--outline btn--lg">View Our Services</a>
+  </section>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-val">24/7</div>
+        <div class="stat-lbl">Same-day pickup &amp; delivery,<br>available around the clock</div>
       </div>
-    </div>
-
-    <!-- Cross-shaped image visual -->
-    <div class="hero-visual" id="heroVisual">
-      <div class="hero-cross">
-        <img
-          src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=85&auto=format&fit=crop&crop=center"
-          alt="Healthcare professional"
-        />
+      <div class="stat-item">
+        <div class="stat-val"><span id="cntHipaa">100</span>%</div>
+        <div class="stat-lbl">HIPAA compliant — every driver,<br>every route, every time</div>
       </div>
-    </div>
-
-  </div>
-
-  <!-- Scroll indicator -->
-  <a href="#about" class="hero-scroll-cue" id="heroScroll" aria-label="Scroll down">
-    <div class="hero-scroll-mouse"><div class="hero-scroll-dot"></div></div>
-    <span class="hero-scroll-lbl">Scroll</span>
-  </a>
-
-</section>
-
-<!-- STATS STRIP -->
-<div class="stats-strip">
-  <div class="stats-row">
-    <div class="stat-item">
-      <div class="stat-val">24/7</div>
-      <div class="stat-lbl">Same-day pickup &amp; delivery,<br>available around the clock</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-val"><span id="cntHipaa">100</span>%</div>
-      <div class="stat-lbl">HIPAA compliant — every driver,<br>every route, every time</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-val"><span id="cntSys">4</span>+</div>
-      <div class="stat-lbl">Major health systems within<br>our service corridor</div>
-    </div>
-  </div>
-</div>
-
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-inner">
-    <span class="trust-lbl">Serving</span>
-    <div class="trust-track-wrap">
-      <div class="trust-track">
-        <span class="trust-item">Memorial Hermann Health System</span>
-        <span class="trust-item">UTHealth Houston</span>
-        <span class="trust-item">HCA Healthcare</span>
-        <span class="trust-item">CHI St. Luke's Health</span>
-        <span class="trust-item">Houston Methodist</span>
-        <span class="trust-item">MD Anderson — surrounding facilities</span>
-        <span class="trust-item">Memorial Hermann Health System</span>
-        <span class="trust-item">UTHealth Houston</span>
-        <span class="trust-item">HCA Healthcare</span>
-        <span class="trust-item">CHI St. Luke's Health</span>
-        <span class="trust-item">Houston Methodist</span>
-        <span class="trust-item">MD Anderson — surrounding facilities</span>
+      <div class="stat-item">
+        <div class="stat-val"><span id="cntSys">4</span>+</div>
+        <div class="stat-lbl">Major health systems within<br>our service corridor</div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- ABOUT -->
-<section class="about section" id="about">
-  <div class="wrap">
-    <div class="about-grid">
-
-      <!-- Left col -->
-      <div>
-        <span class="eyebrow ey--teal">Our Story</span>
-        <h2>Medical Logistics<br>For Healthcare People</h2>
-        <p class="about-body">
-          <b>Five Star Medical Courier</b> was built on one belief: the people keeping our healthcare system running deserve a courier partner who understands the stakes. We don't just move packages — we move specimens that determine diagnoses, medications that support recovery, and supplies that keep care moving forward.
-        </p>
-        <p class="about-body">
-          We know this city's healthcare landscape — the hospitals, the labs, the routes, and the urgency that comes with every single pickup. Every delivery is a commitment to the patients and providers at the other end.
-        </p>
-
-        <div class="pillars">
-          <div class="pillar">
-            <div class="pillar-dot"></div>
-            <div>
-              <div class="pillar-title">Reliability First</div>
-              <div class="pillar-text">On-time delivery isn't a goal — it's our baseline commitment.</div>
-            </div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-dot"></div>
-            <div>
-              <div class="pillar-title">HIPAA Trained</div>
-              <div class="pillar-text">Every driver is trained and compliant before their first pickup.</div>
-            </div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-dot"></div>
-            <div>
-              <div class="pillar-title">Chain of Custody</div>
-              <div class="pillar-text">Full documentation from pickup to drop-off, every time.</div>
-            </div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-dot"></div>
-            <div>
-              <div class="pillar-title">Community Focused</div>
-              <div class="pillar-text">We know the routes, the facilities, and what healthcare here demands.</div>
-            </div>
-          </div>
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <span class="trust-lbl">Serving</span>
+      <div class="trust-track-wrap">
+        <div class="trust-track">
+          <span class="trust-item">Memorial Hermann Health System</span>
+          <span class="trust-item">UTHealth Houston</span>
+          <span class="trust-item">HCA Healthcare</span>
+          <span class="trust-item">CHI St. Luke's Health</span>
+          <span class="trust-item">Houston Methodist</span>
+          <span class="trust-item">MD Anderson — surrounding facilities</span>
+          <span class="trust-item">Memorial Hermann Health System</span>
+          <span class="trust-item">UTHealth Houston</span>
+          <span class="trust-item">HCA Healthcare</span>
+          <span class="trust-item">CHI St. Luke's Health</span>
+          <span class="trust-item">Houston Methodist</span>
+          <span class="trust-item">MD Anderson — surrounding facilities</span>
         </div>
-
-        <div class="about-cta">
-          <a href="#contact" class="btn btn--navy">Work With Us</a>
-        </div>
-      </div>
-
-      <!-- Right col: photo + stat cards -->
-      <div>
-        <div class="about-photo">
-          <img
-            src="driver.jpg"
-            alt="Five Star medical courier professional"
-          />
-        </div>
-        <div class="about-stats">
-          <div class="about-stat-card">
-            <span class="about-stat-num about-stat-num--teal">24/7</span>
-            <div class="about-stat-info">
-              <div class="about-stat-title">Around-the-Clock Service</div>
-              <div class="about-stat-desc">Same-day pickup and delivery available every hour of every day, including weekends and holidays</div>
-            </div>
-          </div>
-          <div class="about-stat-card">
-            <span class="about-stat-num about-stat-num--navy">100%</span>
-            <div class="about-stat-info">
-              <div class="about-stat-title">HIPAA Compliant</div>
-              <div class="about-stat-desc">Every driver, every delivery, every route — fully trained and operating to healthcare privacy standards</div>
-            </div>
-          </div>
-          <div class="about-stat-card">
-            <span class="about-stat-num about-stat-num--gold">4+</span>
-            <div class="about-stat-info">
-              <div class="about-stat-title">Major Health Systems</div>
-              <div class="about-stat-desc">Serving major health systems and their facilities across the Greater Houston service corridor</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="services section" id="services">
-  <div class="wrap">
-    <div class="services-hdr">
-      <span class="eyebrow ey--teal">What We Do</span>
-      <h2>End-to-End Medical<br>Logistics Services</h2>
-      <p class="services-intro">From STAT specimen runs to scheduled pharmaceutical routes, Five Star handles the full spectrum of medical courier needs — specialized, compliant, and built for the pace healthcare demands.</p>
-    </div>
-
-    <div class="section-band">
-      <img
-        src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1600&q=80&auto=format&fit=crop"
-        alt="Medical courier in action"
-      />
-      <div class="section-band-lbl">Specialized handling — every pickup, every delivery, every time</div>
-    </div>
-
-    <div class="services-grid">
-      <div class="svc-card">
-        <div class="svc-icon">🧪</div>
-        <span class="svc-num">01</span>
-        <div class="svc-title">Specimen Transport</div>
-        <p class="svc-text">Same-day pickup and delivery of blood draws, tissue samples, cultures, and all lab specimens. Temperature-sensitive handling with complete chain of custody documentation.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">💊</div>
-        <span class="svc-num">02</span>
-        <div class="svc-title">Pharmaceutical Delivery</div>
-        <p class="svc-text">Secure, time-critical delivery of medications from pharmacies to patients, facilities, and care centers. Proper handling protocols with delivery confirmation on every run.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🏥</div>
-        <span class="svc-num">03</span>
-        <div class="svc-title">Hospital Supply Runs</div>
-        <p class="svc-text">Scheduled and on-demand delivery of medical supplies, equipment, and materials between hospitals, surgical centers, and outpatient facilities.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">⚡</div>
-        <span class="svc-num">04</span>
-        <div class="svc-title">STAT Emergency Pickup</div>
-        <p class="svc-text">When timing is critical and the standard courier won't do. Immediate dispatch for urgent specimen pickups, critical supply deliveries, and time-sensitive transport.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🧬</div>
-        <span class="svc-num">05</span>
-        <div class="svc-title">Lab-to-Lab Logistics</div>
-        <p class="svc-text">Coordinated pickup and delivery between independent laboratories, reference labs, and diagnostic centers. We understand specimen integrity requirements.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🏠</div>
-        <span class="svc-num">06</span>
-        <div class="svc-title">Home Health Support</div>
-        <p class="svc-text">Bridging home health agencies and their patients with the facilities that support them — specimen pickups, medication delivery, and supply logistics for the home health network.</p>
       </div>
     </div>
   </div>
-</section>
 
-<!-- WHY FIVE STAR -->
-<section class="why section" id="why">
-  <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&q=80&auto=format&fit=crop');opacity:.11"></div>
-  <div class="wrap">
-    <div>
-      <span class="eyebrow ey--white">Why Five Star</span>
-    </div>
-    <div class="why-grid">
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="wrap">
+      <div class="about-grid">
 
-      <!-- Left -->
-      <div>
-        <h2 class="why-h2">Every Delivery<br>Supports a Patient<br>Outcome</h2>
-        <p class="why-body">Medical couriers aren't just logistics providers — we are a critical link in the chain of care. The specimen that reaches the lab on time. The medication that arrives before the window closes. The supply that keeps a surgical team running. That's what Five Star does, every day.</p>
-        <div class="why-col-photo">
-          <img
-            src="https://images.unsplash.com/photo-1576671081837-49000212a370?w=800&q=85&auto=format&fit=crop"
-            alt="Careful handling of medical specimens"
-          />
-        </div>
-        <div class="why-quote">
-          <p>"Done right, medical logistics enables better care. That responsibility drives everything we do."</p>
-        </div>
-        <a href="#contact" class="btn btn--primary btn--lg">Get a Quote</a>
-      </div>
+        <!-- Left col -->
+        <div>
+          <span class="eyebrow ey--teal">Our Story</span>
+          <h2>Medical Logistics<br>For Healthcare People</h2>
+          <p class="about-body">
+            <b>Five Star Medical Courier</b> was built on one belief: the people keeping our healthcare system running
+            deserve a courier partner who understands the stakes. We don't just move packages — we move specimens that
+            determine diagnoses, medications that support recovery, and supplies that keep care moving forward.
+          </p>
+          <p class="about-body">
+            We know this city's healthcare landscape — the hospitals, the labs, the routes, and the urgency that comes
+            with every single pickup. Every delivery is a commitment to the patients and providers at the other end.
+          </p>
 
-      <!-- Right -->
-      <div>
-        <div class="why-items">
-          <div class="why-item">
-            <div class="why-check">✓</div>
-            <div class="why-item-text"><strong>HIPAA-compliant drivers</strong> and documented chain of custody on every run</div>
-          </div>
-          <div class="why-item">
-            <div class="why-check">✓</div>
-            <div class="why-item-text"><strong>Same-day and STAT service</strong> available 24 hours a day, 7 days a week</div>
-          </div>
-          <div class="why-item">
-            <div class="why-check">✓</div>
-            <div class="why-item-text"><strong>Deep knowledge</strong> of local healthcare facilities and their operational needs</div>
-          </div>
-          <div class="why-item">
-            <div class="why-check">✓</div>
-            <div class="why-item-text"><strong>Real-time communication</strong> — you always know where your delivery stands</div>
-          </div>
-          <div class="why-item">
-            <div class="why-check">✓</div>
-            <div class="why-item-text"><strong>Flexible scheduling</strong> built around your facility's requirements</div>
-          </div>
-        </div>
-
-        <div class="why-metrics">
-          <div class="why-metric">
-            <div class="why-metric-val">Same-Day</div>
-            <div class="why-metric-lbl">Every standard pickup fulfilled same day — no next-day rescheduling</div>
-          </div>
-          <div class="why-metric">
-            <div class="why-metric-val">24/7</div>
-            <div class="why-metric-lbl">STAT dispatch available around the clock</div>
-          </div>
-          <div class="why-metric">
-            <div class="why-metric-val">100%</div>
-            <div class="why-metric-lbl">HIPAA compliant on every single delivery</div>
-          </div>
-          <div class="why-metric">
-            <div class="why-metric-val">Local</div>
-            <div class="why-metric-lbl">Based in Houston, focused on Houston healthcare</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- COVERAGE -->
-<section class="coverage section" id="coverage">
-  <div class="wrap">
-    <div class="coverage-grid">
-
-      <!-- Left -->
-      <div>
-        <span class="eyebrow ey--teal">Service Area</span>
-        <h2>Wherever Your<br>Patients Are, We Are</h2>
-        <p class="coverage-body">Five Star operates across Greater Houston — from the Texas Medical Center to the suburbs. If your facility is in our service corridor, we're ready to be your courier partner today.</p>
-
-        <div class="cov-features">
-          <div class="cov-feat">
-            <div class="cov-ico">🗺️</div>
-            <div>
-              <div class="cov-title">Greater Houston Metro</div>
-              <div class="cov-txt">Full coverage across Harris, Fort Bend, Montgomery, Brazoria, and Galveston counties.</div>
-            </div>
-          </div>
-          <div class="cov-feat">
-            <div class="cov-ico">🏛️</div>
-            <div>
-              <div class="cov-title">Texas Medical Center</div>
-              <div class="cov-txt">Direct service to the world's largest medical complex — all facilities, all departments.</div>
-            </div>
-          </div>
-          <div class="cov-feat">
-            <div class="cov-ico">🔗</div>
-            <div>
-              <div class="cov-title">Multi-Site Facility Runs</div>
-              <div class="cov-txt">Scheduled routes connecting multiple locations within the same health system or lab network.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: navy card -->
-      <div>
-        <div class="cov-card">
-          <span class="cov-card-lbl">Areas We Serve</span>
-          <div class="chips">
-            <span class="chip">Downtown Houston</span>
-            <span class="chip">Texas Medical Center</span>
-            <span class="chip">Katy</span>
-            <span class="chip">Sugar Land</span>
-            <span class="chip">The Woodlands</span>
-            <span class="chip">Pearland</span>
-            <span class="chip">Pasadena</span>
-            <span class="chip">League City</span>
-            <span class="chip">Baytown</span>
-            <span class="chip">Stafford</span>
-            <span class="chip">Missouri City</span>
-            <span class="chip">Spring</span>
-          </div>
-          <span class="fac-lbl">Key Facilities in Our Network</span>
-          <div class="fac-list">
-            <div class="fac-item">Memorial Hermann</div>
-            <div class="fac-item">UTHealth Houston</div>
-            <div class="fac-item">Houston Methodist</div>
-            <div class="fac-item">HCA Houston</div>
-            <div class="fac-item">CHI St. Luke's</div>
-            <div class="fac-item">Kelsey-Seybold</div>
-            <div class="fac-item">Harris Health</div>
-            <div class="fac-item">MD Anderson Area</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- COMPLIANCE -->
-<section class="compliance section" id="compliance">
-  <div class="wrap">
-    <div class="comp-hdr">
-      <span class="eyebrow ey--teal ey--center">Compliance &amp; Standards</span>
-      <h2>Built for Healthcare's<br>Standards — Not Around Them</h2>
-      <p class="comp-intro">Healthcare logistics requires more than a van and a driver. Five Star operates with the compliance, documentation, and training standards that hospitals and laboratories require from a trusted courier partner.</p>
-    </div>
-    <div class="comp-grid">
-      <div class="comp-card">
-        <div class="comp-icon">🔒</div>
-        <div class="comp-title">HIPAA Compliant</div>
-        <p class="comp-text">All drivers trained on HIPAA privacy standards. Patient information handled with full confidentiality and protocol compliance on every single run.</p>
-      </div>
-      <div class="comp-card">
-        <div class="comp-icon">📋</div>
-        <div class="comp-title">Chain of Custody</div>
-        <p class="comp-text">Every pickup and drop-off documented. Full custody records available for labs, hospitals, and audit requirements.</p>
-      </div>
-      <div class="comp-card">
-        <div class="comp-icon">🌡️</div>
-        <div class="comp-title">Temperature Handling</div>
-        <p class="comp-text">Proper temperature-controlled transport for specimens and medications that require specific environmental conditions throughout transit.</p>
-      </div>
-      <div class="comp-card">
-        <div class="comp-icon">✅</div>
-        <div class="comp-title">Trained Drivers</div>
-        <p class="comp-text">Every Five Star driver is background-checked, HIPAA-trained, and briefed on medical courier handling standards before their first run.</p>
-      </div>
-    </div>
-
-    <div class="section-band">
-      <img
-        src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=1600&q=80&auto=format&fit=crop"
-        alt="Professional medical logistics handling"
-      />
-      <div class="section-band-lbl">Background-checked · HIPAA-trained · Full chain of custody documentation</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials section" id="testimonials">
-  <div class="wrap">
-    <div class="testimonials-hdr">
-      <span class="eyebrow ey--teal">What Clients Say</span>
-      <h2>Trusted by Houston's<br>Healthcare Network</h2>
-    </div>
-    <div class="swiper t-swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="t-card">
-            <p class="t-card-q">Five Star has been our go-to specimen courier for over a year. Never a missed pickup, never a chain of custody issue. Their drivers understand what healthcare compliance actually means.</p>
-            <hr class="t-divider"/>
-            <div class="t-name">Lab Manager</div>
-            <div class="t-role">Memorial Hermann Health System</div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="t-card">
-            <p class="t-card-q">The STAT service is exceptional. When we need an emergency pickup, they're there within the hour — every single time. That kind of reliability is what our patients depend on.</p>
-            <hr class="t-divider"/>
-            <div class="t-name">Clinic Director</div>
-            <div class="t-role">CHI St. Luke's Health</div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="t-card">
-            <p class="t-card-q">Finally a courier that understands healthcare operations. Flexible scheduling, real-time communication, and zero documentation errors. They've made our logistics seamless.</p>
-            <hr class="t-divider"/>
-            <div class="t-name">Operations Manager</div>
-            <div class="t-role">UTHealth Houston</div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="t-card">
-            <p class="t-card-q">Our lab-to-lab transfers require perfect specimen integrity. Five Star handles every run with the professionalism and documentation accuracy our reference lab requires.</p>
-            <hr class="t-divider"/>
-            <div class="t-name">Regional Lab Supervisor</div>
-            <div class="t-role">Harris Health System</div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="t-card">
-            <p class="t-card-q">We've worked with several medical couriers over the years. Five Star is the first one that actually feels like a partner — they know our facilities, our schedules, and our standards.</p>
-            <hr class="t-divider"/>
-            <div class="t-name">Medical Director</div>
-            <div class="t-role">Kelsey-Seybold Clinic</div>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BANNER -->
-<section class="cta-banner" id="cta">
-  <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1920&q=80&auto=format&fit=crop');opacity:.16"></div>
-  <div class="cta-inner">
-    <span class="eyebrow ey--white ey--center">Get Started</span>
-    <h2><strong>Ready to Make Five Star</strong><br>Your Courier Partner?</h2>
-    <div class="cta-divider"></div>
-    <p class="cta-text">Tell us about your facility's needs and we'll put together a service plan built around your schedule, your routes, and your standards. No long-term contracts. No runaround. Just reliable medical courier service.</p>
-    <div class="cta-btns">
-      <a href="#contact" class="btn btn--primary btn--lg">Request a Quote</a>
-      <a href="tel:7138385356" class="btn btn--outline btn--lg">Call Us: (713) 838-5356</a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact section" id="contact">
-  <div class="wrap">
-    <div class="contact-grid">
-
-      <!-- Left -->
-      <div>
-        <span class="eyebrow ey--teal">Contact Us</span>
-        <h2>Let's Talk About<br>Your Delivery Needs</h2>
-        <p class="contact-body">Whether you need a recurring pickup route, same-day STAT service, or want to discuss a custom logistics arrangement for your facility — we're ready to help. Reach out and we'll respond within the hour.</p>
-
-        <div class="ci-list">
-          <div class="ci-item">
-            <div class="ci-ico">📞</div>
-            <div>
-              <div class="ci-lbl">Phone</div>
-              <div class="ci-val"><a href="tel:7138385356">(713) 838-5356</a></div>
-              <div class="ci-sub">Available 24/7 for STAT requests</div>
-            </div>
-          </div>
-          <div class="ci-item">
-            <div class="ci-ico">✉️</div>
-            <div>
-              <div class="ci-lbl">Email</div>
-              <div class="ci-val"><a href="mailto:mashariashepard@gmail.com">mashariashepard@gmail.com</a></div>
-              <div class="ci-sub">We respond within the hour</div>
-            </div>
-          </div>
-          <div class="ci-item">
-            <div class="ci-ico">📍</div>
-            <div>
-              <div class="ci-lbl">Location</div>
-              <div class="ci-val">Houston, Texas</div>
-              <div class="ci-sub">Serving Greater Houston and surrounding counties</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: Form -->
-      <div>
-        <div class="form-wrap">
-          <h3>Send a Request</h3>
-          <form id="cForm" novalidate>
-            <div class="frow">
-              <div class="fg">
-                <label class="flbl" for="fname">Full Name</label>
-                <input id="fname" class="fctrl" type="text" placeholder="Jane Smith" required/>
-              </div>
-              <div class="fg">
-                <label class="flbl" for="forg">Facility / Organization</label>
-                <input id="forg" class="fctrl" type="text" placeholder="Memorial Hermann" required/>
+          <div class="pillars">
+            <div class="pillar">
+              <div class="pillar-dot"></div>
+              <div>
+                <div class="pillar-title">Reliability First</div>
+                <div class="pillar-text">On-time delivery isn't a goal — it's our baseline commitment.</div>
               </div>
             </div>
-            <div class="frow">
-              <div class="fg">
-                <label class="flbl" for="femail">Email Address</label>
-                <input id="femail" class="fctrl" type="email" placeholder="jane@hospital.org" required/>
-              </div>
-              <div class="fg">
-                <label class="flbl" for="fphone">Phone Number</label>
-                <input id="fphone" class="fctrl" type="tel" placeholder="(713) 000-0000"/>
+            <div class="pillar">
+              <div class="pillar-dot"></div>
+              <div>
+                <div class="pillar-title">HIPAA Trained</div>
+                <div class="pillar-text">Every driver is trained and compliant before their first pickup.</div>
               </div>
             </div>
-            <div class="fg">
-              <label class="flbl" for="fservice">Service Needed</label>
-              <select id="fservice" class="fctrl">
-                <option value="">Select a service…</option>
-                <option>Specimen Transport</option>
-                <option>Pharmaceutical Delivery</option>
-                <option>Hospital Supply Runs</option>
-                <option>STAT Emergency Pickup</option>
-                <option>Lab-to-Lab Logistics</option>
-                <option>Home Health Support</option>
-                <option>Not Sure — Need Consultation</option>
-              </select>
+            <div class="pillar">
+              <div class="pillar-dot"></div>
+              <div>
+                <div class="pillar-title">Chain of Custody</div>
+                <div class="pillar-text">Full documentation from pickup to drop-off, every time.</div>
+              </div>
             </div>
-            <div class="fg">
-              <label class="flbl" for="fmsg">Tell Us About Your Needs</label>
-              <textarea id="fmsg" class="fctrl" placeholder="Describe your facility's pickup/delivery requirements, frequency, or any special handling needs…"></textarea>
+            <div class="pillar">
+              <div class="pillar-dot"></div>
+              <div>
+                <div class="pillar-title">Community Focused</div>
+                <div class="pillar-text">We know the routes, the facilities, and what healthcare here demands.</div>
+              </div>
             </div>
-            <button type="submit" class="btn btn--primary btn--lg f-submit">Send Request →</button>
-          </form>
-          <div class="f-success" id="fSuccess">
-            <div class="f-success-icon">✅</div>
-            <div class="f-success-title">Message Received</div>
-            <p class="f-success-text">Thank you — we'll be in touch within the hour to discuss your needs.</p>
+          </div>
+
+          <div class="about-cta">
+            <a href="#contact" class="btn btn--navy">Work With Us</a>
+          </div>
+        </div>
+
+        <!-- Right col: photo + stat cards -->
+        <div>
+          <div class="about-photo">
+            <img src="driver.jpg" alt="Five Star medical courier professional" />
+          </div>
+          <div class="about-stats">
+            <div class="about-stat-card">
+              <span class="about-stat-num about-stat-num--teal">24/7</span>
+              <div class="about-stat-info">
+                <div class="about-stat-title">Around-the-Clock Service</div>
+                <div class="about-stat-desc">Same-day pickup and delivery available every hour of every day, including
+                  weekends and holidays</div>
+              </div>
+            </div>
+            <div class="about-stat-card">
+              <span class="about-stat-num about-stat-num--navy">100%</span>
+              <div class="about-stat-info">
+                <div class="about-stat-title">HIPAA Compliant</div>
+                <div class="about-stat-desc">Every driver, every delivery, every route — fully trained and operating to
+                  healthcare privacy standards</div>
+              </div>
+            </div>
+            <div class="about-stat-card">
+              <span class="about-stat-num about-stat-num--gold">4+</span>
+              <div class="about-stat-info">
+                <div class="about-stat-title">Major Health Systems</div>
+                <div class="about-stat-desc">Serving major health systems and their facilities across the Greater
+                  Houston service corridor</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services section" id="services">
+    <div class="wrap">
+      <div class="services-hdr">
+        <span class="eyebrow ey--teal">What We Do</span>
+        <h2>End-to-End Medical<br>Logistics Services</h2>
+        <p class="services-intro">From STAT specimen runs to scheduled pharmaceutical routes, Five Star handles the full
+          spectrum of medical courier needs — specialized, compliant, and built for the pace healthcare demands.</p>
+      </div>
+
+      <div class="section-band">
+        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1600&q=80&auto=format&fit=crop"
+          alt="Medical courier in action" />
+        <div class="section-band-lbl">Specialized handling — every pickup, every delivery, every time</div>
+      </div>
+
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon">🧪</div>
+          <span class="svc-num">01</span>
+          <div class="svc-title">Specimen Transport</div>
+          <p class="svc-text">Same-day pickup and delivery of blood draws, tissue samples, cultures, and all lab
+            specimens. Temperature-sensitive handling with complete chain of custody documentation.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">💊</div>
+          <span class="svc-num">02</span>
+          <div class="svc-title">Pharmaceutical Delivery</div>
+          <p class="svc-text">Secure, time-critical delivery of medications from pharmacies to patients, facilities, and
+            care centers. Proper handling protocols with delivery confirmation on every run.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🏥</div>
+          <span class="svc-num">03</span>
+          <div class="svc-title">Hospital Supply Runs</div>
+          <p class="svc-text">Scheduled and on-demand delivery of medical supplies, equipment, and materials between
+            hospitals, surgical centers, and outpatient facilities.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">⚡</div>
+          <span class="svc-num">04</span>
+          <div class="svc-title">STAT Emergency Pickup</div>
+          <p class="svc-text">When timing is critical and the standard courier won't do. Immediate dispatch for urgent
+            specimen pickups, critical supply deliveries, and time-sensitive transport.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🧬</div>
+          <span class="svc-num">05</span>
+          <div class="svc-title">Lab-to-Lab Logistics</div>
+          <p class="svc-text">Coordinated pickup and delivery between independent laboratories, reference labs, and
+            diagnostic centers. We understand specimen integrity requirements.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🏠</div>
+          <span class="svc-num">06</span>
+          <div class="svc-title">Home Health Support</div>
+          <p class="svc-text">Bridging home health agencies and their patients with the facilities that support them —
+            specimen pickups, medication delivery, and supply logistics for the home health network.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY FIVE STAR -->
+  <section class="why section" id="why">
+    <div class="section-bg"
+      style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&q=80&auto=format&fit=crop');opacity:.11">
+    </div>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow ey--white">Why Five Star</span>
+      </div>
+      <div class="why-grid">
+
+        <!-- Left -->
+        <div>
+          <h2 class="why-h2">Every Delivery<br>Supports a Patient<br>Outcome</h2>
+          <p class="why-body">Medical couriers aren't just logistics providers — we are a critical link in the chain of
+            care. The specimen that reaches the lab on time. The medication that arrives before the window closes. The
+            supply that keeps a surgical team running. That's what Five Star does, every day.</p>
+          <div class="why-col-photo">
+            <img src="https://images.unsplash.com/photo-1576671081837-49000212a370?w=800&q=85&auto=format&fit=crop"
+              alt="Careful handling of medical specimens" />
+          </div>
+          <div class="why-quote">
+            <p>"Done right, medical logistics enables better care. That responsibility drives everything we do."</p>
+          </div>
+          <a href="#contact" class="btn btn--primary btn--lg">Get a Quote</a>
+        </div>
+
+        <!-- Right -->
+        <div>
+          <div class="why-items">
+            <div class="why-item">
+              <div class="why-check">✓</div>
+              <div class="why-item-text"><strong>HIPAA-compliant drivers</strong> and documented chain of custody on
+                every run</div>
+            </div>
+            <div class="why-item">
+              <div class="why-check">✓</div>
+              <div class="why-item-text"><strong>Same-day and STAT service</strong> available 24 hours a day, 7 days a
+                week</div>
+            </div>
+            <div class="why-item">
+              <div class="why-check">✓</div>
+              <div class="why-item-text"><strong>Deep knowledge</strong> of local healthcare facilities and their
+                operational needs</div>
+            </div>
+            <div class="why-item">
+              <div class="why-check">✓</div>
+              <div class="why-item-text"><strong>Real-time communication</strong> — you always know where your delivery
+                stands</div>
+            </div>
+            <div class="why-item">
+              <div class="why-check">✓</div>
+              <div class="why-item-text"><strong>Flexible scheduling</strong> built around your facility's requirements
+              </div>
+            </div>
+          </div>
+
+          <div class="why-metrics">
+            <div class="why-metric">
+              <div class="why-metric-val">Same-Day</div>
+              <div class="why-metric-lbl">Every standard pickup fulfilled same day — no next-day rescheduling</div>
+            </div>
+            <div class="why-metric">
+              <div class="why-metric-val">24/7</div>
+              <div class="why-metric-lbl">STAT dispatch available around the clock</div>
+            </div>
+            <div class="why-metric">
+              <div class="why-metric-val">100%</div>
+              <div class="why-metric-lbl">HIPAA compliant on every single delivery</div>
+            </div>
+            <div class="why-metric">
+              <div class="why-metric-val">Local</div>
+              <div class="why-metric-lbl">Based in Houston, focused on Houston healthcare</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section class="coverage section" id="coverage">
+    <div class="wrap">
+      <div class="coverage-grid">
+
+        <!-- Left -->
+        <div>
+          <span class="eyebrow ey--teal">Service Area</span>
+          <h2>Wherever Your<br>Patients Are, We Are</h2>
+          <p class="coverage-body">Five Star operates across Greater Houston — from the Texas Medical Center to the
+            suburbs. If your facility is in our service corridor, we're ready to be your courier partner today.</p>
+
+          <div class="cov-features">
+            <div class="cov-feat">
+              <div class="cov-ico">🗺️</div>
+              <div>
+                <div class="cov-title">Greater Houston Metro</div>
+                <div class="cov-txt">Full coverage across Harris, Fort Bend, Montgomery, Brazoria, and Galveston
+                  counties.</div>
+              </div>
+            </div>
+            <div class="cov-feat">
+              <div class="cov-ico">🏛️</div>
+              <div>
+                <div class="cov-title">Texas Medical Center</div>
+                <div class="cov-txt">Direct service to the world's largest medical complex — all facilities, all
+                  departments.</div>
+              </div>
+            </div>
+            <div class="cov-feat">
+              <div class="cov-ico">🔗</div>
+              <div>
+                <div class="cov-title">Multi-Site Facility Runs</div>
+                <div class="cov-txt">Scheduled routes connecting multiple locations within the same health system or lab
+                  network.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: navy card -->
+        <div>
+          <div class="cov-card">
+            <span class="cov-card-lbl">Areas We Serve</span>
+            <div class="chips">
+              <span class="chip">Downtown Houston</span>
+              <span class="chip">Texas Medical Center</span>
+              <span class="chip">Katy</span>
+              <span class="chip">Sugar Land</span>
+              <span class="chip">The Woodlands</span>
+              <span class="chip">Pearland</span>
+              <span class="chip">Pasadena</span>
+              <span class="chip">League City</span>
+              <span class="chip">Baytown</span>
+              <span class="chip">Stafford</span>
+              <span class="chip">Missouri City</span>
+              <span class="chip">Spring</span>
+            </div>
+            <span class="fac-lbl">Key Facilities in Our Network</span>
+            <div class="fac-list">
+              <div class="fac-item">Memorial Hermann</div>
+              <div class="fac-item">UTHealth Houston</div>
+              <div class="fac-item">Houston Methodist</div>
+              <div class="fac-item">HCA Houston</div>
+              <div class="fac-item">CHI St. Luke's</div>
+              <div class="fac-item">Kelsey-Seybold</div>
+              <div class="fac-item">Harris Health</div>
+              <div class="fac-item">MD Anderson Area</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="compliance section" id="compliance">
+    <div class="wrap">
+      <div class="comp-hdr">
+        <span class="eyebrow ey--teal ey--center">Compliance &amp; Standards</span>
+        <h2>Built for Healthcare's<br>Standards — Not Around Them</h2>
+        <p class="comp-intro">Healthcare logistics requires more than a van and a driver. Five Star operates with the
+          compliance, documentation, and training standards that hospitals and laboratories require from a trusted
+          courier partner.</p>
+      </div>
+      <div class="comp-grid">
+        <div class="comp-card">
+          <div class="comp-icon">🔒</div>
+          <div class="comp-title">HIPAA Compliant</div>
+          <p class="comp-text">All drivers trained on HIPAA privacy standards. Patient information handled with full
+            confidentiality and protocol compliance on every single run.</p>
+        </div>
+        <div class="comp-card">
+          <div class="comp-icon">📋</div>
+          <div class="comp-title">Chain of Custody</div>
+          <p class="comp-text">Every pickup and drop-off documented. Full custody records available for labs, hospitals,
+            and audit requirements.</p>
+        </div>
+        <div class="comp-card">
+          <div class="comp-icon">🌡️</div>
+          <div class="comp-title">Temperature Handling</div>
+          <p class="comp-text">Proper temperature-controlled transport for specimens and medications that require
+            specific environmental conditions throughout transit.</p>
+        </div>
+        <div class="comp-card">
+          <div class="comp-icon">✅</div>
+          <div class="comp-title">Trained Drivers</div>
+          <p class="comp-text">Every Five Star driver is background-checked, HIPAA-trained, and briefed on medical
+            courier handling standards before their first run.</p>
+        </div>
+      </div>
+
+      <div class="section-band">
+        <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=1600&q=80&auto=format&fit=crop"
+          alt="Professional medical logistics handling" />
+        <div class="section-band-lbl">Background-checked · HIPAA-trained · Full chain of custody documentation</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials section" id="testimonials">
+    <div class="wrap">
+      <div class="testimonials-hdr">
+        <span class="eyebrow ey--teal">What Clients Say</span>
+        <h2>Trusted by Houston's<br>Healthcare Network</h2>
+      </div>
+      <div class="swiper t-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="t-card">
+              <p class="t-card-q">Five Star has been our go-to specimen courier for over a year. Never a missed pickup,
+                never a chain of custody issue. Their drivers understand what healthcare compliance actually means.</p>
+              <hr class="t-divider" />
+              <div class="t-name">Lab Manager</div>
+              <div class="t-role">Memorial Hermann Health System</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="t-card">
+              <p class="t-card-q">The STAT service is exceptional. When we need an emergency pickup, they're there
+                within the hour — every single time. That kind of reliability is what our patients depend on.</p>
+              <hr class="t-divider" />
+              <div class="t-name">Clinic Director</div>
+              <div class="t-role">CHI St. Luke's Health</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="t-card">
+              <p class="t-card-q">Finally a courier that understands healthcare operations. Flexible scheduling,
+                real-time communication, and zero documentation errors. They've made our logistics seamless.</p>
+              <hr class="t-divider" />
+              <div class="t-name">Operations Manager</div>
+              <div class="t-role">UTHealth Houston</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="t-card">
+              <p class="t-card-q">Our lab-to-lab transfers require perfect specimen integrity. Five Star handles every
+                run with the professionalism and documentation accuracy our reference lab requires.</p>
+              <hr class="t-divider" />
+              <div class="t-name">Regional Lab Supervisor</div>
+              <div class="t-role">Harris Health System</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="t-card">
+              <p class="t-card-q">We've worked with several medical couriers over the years. Five Star is the first one
+                that actually feels like a partner — they know our facilities, our schedules, and our standards.</p>
+              <hr class="t-divider" />
+              <div class="t-name">Medical Director</div>
+              <div class="t-role">Kelsey-Seybold Clinic</div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner" id="cta">
+    <div class="section-bg"
+      style="background-image:url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1920&q=80&auto=format&fit=crop');opacity:.16">
+    </div>
+    <div class="cta-inner">
+      <span class="eyebrow ey--white ey--center">Get Started</span>
+      <h2><strong>Ready to Make Five Star</strong><br>Your Courier Partner?</h2>
+      <div class="cta-divider"></div>
+      <p class="cta-text">Tell us about your facility's needs and we'll put together a service plan built around your
+        schedule, your routes, and your standards. No long-term contracts. No runaround. Just reliable medical courier
+        service.</p>
+      <div class="cta-btns">
+        <a href="#contact" class="btn btn--primary btn--lg">Request a Quote</a>
+        <a href="tel:7138385356" class="btn btn--outline btn--lg">Call Us: (713) 838-5356</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+
+        <!-- Left -->
+        <div>
+          <span class="eyebrow ey--teal">Contact Us</span>
+          <h2>Let's Talk About<br>Your Delivery Needs</h2>
+          <p class="contact-body">Whether you need a recurring pickup route, same-day STAT service, or want to discuss a
+            custom logistics arrangement for your facility — we're ready to help. Reach out and we'll respond within the
+            hour.</p>
+
+          <div class="ci-list">
+            <div class="ci-item">
+              <div class="ci-ico">📞</div>
+              <div>
+                <div class="ci-lbl">Phone</div>
+                <div class="ci-val"><a href="tel:7138385356">(713) 838-5356</a></div>
+                <div class="ci-sub">Available 24/7 for STAT requests</div>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-ico">✉️</div>
+              <div>
+                <div class="ci-lbl">Email</div>
+                <div class="ci-val"><a href="mailto:mashariashepard@gmail.com">mashariashepard@gmail.com</a></div>
+                <div class="ci-sub">We respond within the hour</div>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-ico">📍</div>
+              <div>
+                <div class="ci-lbl">Location</div>
+                <div class="ci-val">Houston, Texas</div>
+                <div class="ci-sub">Serving Greater Houston and surrounding counties</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div>
+          <div class="form-wrap">
+            <h3>Send a Request</h3>
+            <form id="cForm" novalidate>
+              <div class="frow">
+                <div class="fg">
+                  <label class="flbl" for="fname">Full Name</label>
+                  <input id="fname" class="fctrl" type="text" placeholder="Jane Smith" required />
+                </div>
+                <div class="fg">
+                  <label class="flbl" for="forg">Facility / Organization</label>
+                  <input id="forg" class="fctrl" type="text" placeholder="Memorial Hermann" required />
+                </div>
+              </div>
+              <div class="frow">
+                <div class="fg">
+                  <label class="flbl" for="femail">Email Address</label>
+                  <input id="femail" class="fctrl" type="email" placeholder="jane@hospital.org" required />
+                </div>
+                <div class="fg">
+                  <label class="flbl" for="fphone">Phone Number</label>
+                  <input id="fphone" class="fctrl" type="tel" placeholder="(713) 000-0000" />
+                </div>
+              </div>
+              <div class="fg">
+                <label class="flbl" for="fservice">Service Needed</label>
+                <select id="fservice" class="fctrl">
+                  <option value="">Select a service…</option>
+                  <option>Specimen Transport</option>
+                  <option>Pharmaceutical Delivery</option>
+                  <option>Hospital Supply Runs</option>
+                  <option>STAT Emergency Pickup</option>
+                  <option>Lab-to-Lab Logistics</option>
+                  <option>Home Health Support</option>
+                  <option>Not Sure — Need Consultation</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label class="flbl" for="fmsg">Tell Us About Your Needs</label>
+                <textarea id="fmsg" class="fctrl"
+                  placeholder="Describe your facility's pickup/delivery requirements, frequency, or any special handling needs…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg f-submit">Send Request →</button>
+            </form>
+            <div class="f-success" id="fSuccess">
+              <div class="f-success-icon">✅</div>
+              <div class="f-success-title">Message Received</div>
+              <p class="f-success-text">Thank you — we'll be in touch within the hour to discuss your needs.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="section-bg"
+      style="background-image:url('https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=1600&q=80&auto=format&fit=crop');opacity:.07">
+    </div>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="f-brand-name">Five Star Medical Courier</div>
+          <span class="f-brand-sub">Houston, TX</span>
+          <p class="f-tagline">Healthcare logistics built for the people who deliver care. HIPAA compliant, same-day
+            service, 24/7.</p>
+          <div class="f-contact-info">
+            <div class="f-contact-line"><a href="tel:7138385356">(713) 838-5356</a></div>
+            <div class="f-contact-line"><a href="mailto:mashariashepard@gmail.com">mashariashepard@gmail.com</a></div>
+            <div class="f-contact-line">Houston, Texas</div>
+          </div>
+        </div>
+        <div>
+          <div class="f-col-lbl">Services</div>
+          <div class="f-links">
+            <a href="#services">Specimen Transport</a>
+            <a href="#services">Pharmaceutical Delivery</a>
+            <a href="#services">Hospital Supply Runs</a>
+            <a href="#services">STAT Emergency Pickup</a>
+            <a href="#services">Lab-to-Lab Logistics</a>
+            <a href="#services">Home Health Support</a>
+          </div>
+        </div>
+        <div>
+          <div class="f-col-lbl">Company</div>
+          <div class="f-links">
+            <a href="#about">About Us</a>
+            <a href="#why">Why Five Star</a>
+            <a href="#coverage">Coverage Area</a>
+            <a href="#compliance">Compliance</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="f-col-lbl">Get Started</div>
+          <p class="f-cta-desc">Ready for a courier partner that understands healthcare? Reach out today.</p>
+          <div class="f-phone">(713) 838-5356</div>
+          <div style="margin-top:1.25rem">
+            <a href="#contact" class="btn btn--primary">Request a Quote</a>
           </div>
         </div>
       </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=1600&q=80&auto=format&fit=crop');opacity:.07"></div>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="f-brand-name">Five Star Medical Courier</div>
-        <span class="f-brand-sub">Houston, TX</span>
-        <p class="f-tagline">Healthcare logistics built for the people who deliver care. HIPAA compliant, same-day service, 24/7.</p>
-        <div class="f-contact-info">
-          <div class="f-contact-line"><a href="tel:7138385356">(713) 838-5356</a></div>
-          <div class="f-contact-line"><a href="mailto:mashariashepard@gmail.com">mashariashepard@gmail.com</a></div>
-          <div class="f-contact-line">Houston, Texas</div>
-        </div>
-      </div>
-      <div>
-        <div class="f-col-lbl">Services</div>
-        <div class="f-links">
-          <a href="#services">Specimen Transport</a>
-          <a href="#services">Pharmaceutical Delivery</a>
-          <a href="#services">Hospital Supply Runs</a>
-          <a href="#services">STAT Emergency Pickup</a>
-          <a href="#services">Lab-to-Lab Logistics</a>
-          <a href="#services">Home Health Support</a>
-        </div>
-      </div>
-      <div>
-        <div class="f-col-lbl">Company</div>
-        <div class="f-links">
-          <a href="#about">About Us</a>
-          <a href="#why">Why Five Star</a>
-          <a href="#coverage">Coverage Area</a>
-          <a href="#compliance">Compliance</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-      <div>
-        <div class="f-col-lbl">Get Started</div>
-        <p class="f-cta-desc">Ready for a courier partner that understands healthcare? Reach out today.</p>
-        <div class="f-phone">(713) 838-5356</div>
-        <div style="margin-top:1.25rem">
-          <a href="#contact" class="btn btn--primary">Request a Quote</a>
+      <hr class="f-divider" />
+      <div class="f-bottom">
+        <div class="f-copy">© 2026 Five Star Medical Courier — Houston, TX</div>
+        <div class="f-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
         </div>
       </div>
     </div>
-    <hr class="f-divider"/>
-    <div class="f-bottom">
-      <div class="f-copy">© 2026 Five Star Medical Courier — Houston, TX</div>
-      <div class="f-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-      </div>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- SCRIPTS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.8.0/countUp.umd.js"></script>
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.8.0/countUp.umd.js"></script>
 
-<script>
-(function () {
-  'use strict';
+  <script>
+    (function () {
+      'use strict';
 
-  /* ── 1. NAV ───────────────────────────── */
-  var header = document.getElementById('siteHeader');
-  window.addEventListener('scroll', function () {
-    header.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
+      /* ── 1. NAV ───────────────────────────── */
+      var header = document.getElementById('siteHeader');
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
 
-  function toggleNav() {
-    var burger = document.getElementById('navBurger');
-    var nav    = document.getElementById('mobileNav');
-    var open   = burger.classList.toggle('open');
-    nav.classList.toggle('open', open);
-    if (open) { lenis.stop(); } else { lenis.start(); }
-  }
-  function closeNav() {
-    document.getElementById('navBurger').classList.remove('open');
-    document.getElementById('mobileNav').classList.remove('open');
-    lenis.start();
-  }
-  window.toggleNav = toggleNav;
-  window.closeNav  = closeNav;
+      function toggleNav() {
+        var burger = document.getElementById('navBurger');
+        var nav = document.getElementById('mobileNav');
+        var open = burger.classList.toggle('open');
+        nav.classList.toggle('open', open);
+        if (open) { lenis.stop(); } else { lenis.start(); }
+      }
+      function closeNav() {
+        document.getElementById('navBurger').classList.remove('open');
+        document.getElementById('mobileNav').classList.remove('open');
+        lenis.start();
+      }
+      window.toggleNav = toggleNav;
+      window.closeNav = closeNav;
 
-  /* ── 2. LENIS ─────────────────────────── */
-  var lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
-  lenis.on('scroll', ScrollTrigger.update);
-  gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
-  gsap.ticker.lagSmoothing(0);
+      /* ── 2. LENIS ─────────────────────────── */
+      var lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+      gsap.ticker.lagSmoothing(0);
 
-  /* ── 3. GSAP HERO ─────────────────────── */
-  // Split headline into word spans for stagger
-  document.querySelectorAll('.hero-line').forEach(function (line) {
-    var words = line.textContent.trim().split(/\s+/);
-    line.innerHTML = words.map(function (w) {
-      return '<span style="display:inline-block;overflow:hidden;vertical-align:bottom">' +
-             '<span class="hw" style="display:inline-block">' + w + ' </span></span>';
-    }).join('');
-  });
+      /* ── 3. GSAP HERO ─────────────────────── */
+      // Split headline into word spans for stagger
+      document.querySelectorAll('.hero-line').forEach(function (line) {
+        var words = line.textContent.trim().split(/\s+/);
+        line.innerHTML = words.map(function (w) {
+          return '<span style="display:inline-block;overflow:hidden;vertical-align:bottom">' +
+            '<span class="hw" style="display:inline-block">' + w + ' </span></span>';
+        }).join('');
+      });
 
-  gsap.set('#heroEy',     { opacity: 0, y: 14 });
-  gsap.set('.hw',         { y: '105%' });
-  gsap.set(['#heroSub', '#heroBtns'], { opacity: 0, y: 18 });
-  gsap.set('#heroH1',     { opacity: 1 }); /* words hidden inside overflow:hidden clips */
-  gsap.set('#heroVisual', { opacity: 0, x: 50 });
-  gsap.set('#heroScroll', { opacity: 0, y: 12 });
+      gsap.set('#heroEy', { opacity: 0, y: 14 });
+      gsap.set('.hw', { y: '105%' });
+      gsap.set(['#heroSub', '#heroBtns'], { opacity: 0, y: 18 });
+      gsap.set('#heroH1', { opacity: 1 }); /* words hidden inside overflow:hidden clips */
+      gsap.set('#heroVisual', { opacity: 0, x: 50 });
+      gsap.set('#heroScroll', { opacity: 0, y: 12 });
 
-  var heroTl = gsap.timeline({ delay: 0.25, defaults: { ease: 'power3.out' } });
-  heroTl
-    .to('#heroEy',      { opacity: 1, y: 0, duration: 0.65 })
-    .to('.hw',          { y: 0, stagger: 0.07, duration: 0.65 }, '-=0.35')
-    .to('#heroSub',     { opacity: 1, y: 0, duration: 0.55 }, '-=0.3')
-    .to('#heroBtns',    { opacity: 1, y: 0, duration: 0.5  }, '-=0.3')
-    .to('#heroVisual',  { opacity: 1, x: 0,  duration: 1.1, ease: 'power2.out' }, 0.3)
-    .to('#heroScroll',  { opacity: 0.6, y: 0, duration: 0.5 }, '-=0.3');
+      var heroTl = gsap.timeline({ delay: 0.25, defaults: { ease: 'power3.out' } });
+      heroTl
+        .to('#heroEy', { opacity: 1, y: 0, duration: 0.65 })
+        .to('.hw', { y: 0, stagger: 0.07, duration: 0.65 }, '-=0.35')
+        .to('#heroSub', { opacity: 1, y: 0, duration: 0.55 }, '-=0.3')
+        .to('#heroBtns', { opacity: 1, y: 0, duration: 0.5 }, '-=0.3')
+        .to('#heroVisual', { opacity: 1, x: 0, duration: 1.1, ease: 'power2.out' }, 0.3)
+        .to('#heroScroll', { opacity: 0.6, y: 0, duration: 0.5 }, '-=0.3');
 
-  /* ── 4. HERO BG PARALLAX ──────────────── */
-  gsap.to('#heroBg', {
-    yPercent: 30,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.hero',
-      start: 'top top',
-      end: 'bottom top',
-      scrub: true
-    }
-  });
+      /* ── 4. HERO BG PARALLAX ──────────────── */
+      gsap.to('#heroBg', {
+        yPercent: 30,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
 
-  /* ── 5. COUNTUP ───────────────────────── */
-  ScrollTrigger.create({
-    trigger: '.stats-strip',
-    start: 'top 95%',
-    once: true,
-    onEnter: function () {
-      var CU = window.countUp && window.countUp.CountUp;
-      if (!CU) return;
-      var c1 = new CU('cntHipaa', 100, { duration: 2.2 });
-      var c2 = new CU('cntSys',     4, { duration: 1.8 });
-      if (!c1.error) c1.start();
-      if (!c2.error) c2.start();
-    }
-  });
+      /* ── 5. COUNTUP ───────────────────────── */
+      ScrollTrigger.create({
+        trigger: '.stats-strip',
+        start: 'top 95%',
+        once: true,
+        onEnter: function () {
+          var CU = window.countUp && window.countUp.CountUp;
+          if (!CU) return;
+          var c1 = new CU('cntHipaa', 100, { duration: 2.2 });
+          var c2 = new CU('cntSys', 4, { duration: 1.8 });
+          if (!c1.error) c1.start();
+          if (!c2.error) c2.start();
+        }
+      });
 
-  /* ── 6. SCROLL REVEAL — GSAP ScrollTrigger ── */
+      /* ── 6. SCROLL REVEAL — GSAP ScrollTrigger ── */
 
-  /* About: spread open from both sides */
-  gsap.from('.about-grid > :first-child', {
-    x: -60, opacity: 0, duration: 0.95, ease: 'power3.out',
-    scrollTrigger: { trigger: '.about-grid', start: 'top 78%', once: true }
-  });
-  gsap.from('.about-grid > :last-child', {
-    x: 60, opacity: 0, duration: 0.95, ease: 'power3.out', delay: 0.1,
-    scrollTrigger: { trigger: '.about-grid', start: 'top 78%', once: true }
-  });
-  gsap.from('.pillar', {
-    x: -30, opacity: 0, stagger: 0.1, duration: 0.6, ease: 'power2.out',
-    scrollTrigger: { trigger: '.pillars', start: 'top 82%', once: true }
-  });
-  gsap.from('.about-stat-card', {
-    y: 45, opacity: 0, scale: 0.94, stagger: 0.14, duration: 0.75, ease: 'back.out(1.5)',
-    scrollTrigger: { trigger: '.about-stats', start: 'top 80%', once: true }
-  });
+      /* About: spread open from both sides */
+      gsap.from('.about-grid > :first-child', {
+        x: -60, opacity: 0, duration: 0.95, ease: 'power3.out',
+        scrollTrigger: { trigger: '.about-grid', start: 'top 78%', once: true }
+      });
+      gsap.from('.about-grid > :last-child', {
+        x: 60, opacity: 0, duration: 0.95, ease: 'power3.out', delay: 0.1,
+        scrollTrigger: { trigger: '.about-grid', start: 'top 78%', once: true }
+      });
+      gsap.from('.pillar', {
+        x: -30, opacity: 0, stagger: 0.1, duration: 0.6, ease: 'power2.out',
+        scrollTrigger: { trigger: '.pillars', start: 'top 82%', once: true }
+      });
+      gsap.from('.about-stat-card', {
+        y: 45, opacity: 0, scale: 0.94, stagger: 0.14, duration: 0.75, ease: 'back.out(1.5)',
+        scrollTrigger: { trigger: '.about-stats', start: 'top 80%', once: true }
+      });
 
-  /* Services: header cascade, cards stagger-pop */
-  gsap.from('.services-hdr > *', {
-    y: 38, opacity: 0, stagger: 0.12, duration: 0.8, ease: 'power3.out',
-    scrollTrigger: { trigger: '.services-hdr', start: 'top 82%', once: true }
-  });
-  gsap.from('.svc-card', {
-    y: 65, opacity: 0, scale: 0.93, stagger: 0.09, duration: 0.72, ease: 'back.out(1.4)',
-    scrollTrigger: { trigger: '.services-grid', start: 'top 80%', once: true }
-  });
+      /* Services: header cascade, cards stagger-pop */
+      gsap.from('.services-hdr > *', {
+        y: 38, opacity: 0, stagger: 0.12, duration: 0.8, ease: 'power3.out',
+        scrollTrigger: { trigger: '.services-hdr', start: 'top 82%', once: true }
+      });
+      gsap.from('.svc-card', {
+        y: 65, opacity: 0, scale: 0.93, stagger: 0.09, duration: 0.72, ease: 'back.out(1.4)',
+        scrollTrigger: { trigger: '.services-grid', start: 'top 80%', once: true }
+      });
 
-  /* Why: spread open + checklist slides in + metrics pop */
-  gsap.from('.why-grid > :first-child', {
-    x: -60, opacity: 0, duration: 0.95, ease: 'power3.out',
-    scrollTrigger: { trigger: '.why-grid', start: 'top 78%', once: true }
-  });
-  gsap.from('.why-grid > :last-child', {
-    x: 60, opacity: 0, duration: 0.95, ease: 'power3.out', delay: 0.1,
-    scrollTrigger: { trigger: '.why-grid', start: 'top 78%', once: true }
-  });
-  gsap.from('.why-item', {
-    x: 32, opacity: 0, stagger: 0.09, duration: 0.6, ease: 'power2.out',
-    scrollTrigger: { trigger: '.why-items', start: 'top 80%', once: true }
-  });
-  gsap.from('.why-metric', {
-    y: 35, opacity: 0, scale: 0.88, stagger: 0.11, duration: 0.65, ease: 'back.out(1.7)',
-    scrollTrigger: { trigger: '.why-metrics', start: 'top 82%', once: true }
-  });
+      /* Why: spread open + checklist slides in + metrics pop */
+      gsap.from('.why-grid > :first-child', {
+        x: -60, opacity: 0, duration: 0.95, ease: 'power3.out',
+        scrollTrigger: { trigger: '.why-grid', start: 'top 78%', once: true }
+      });
+      gsap.from('.why-grid > :last-child', {
+        x: 60, opacity: 0, duration: 0.95, ease: 'power3.out', delay: 0.1,
+        scrollTrigger: { trigger: '.why-grid', start: 'top 78%', once: true }
+      });
+      gsap.from('.why-item', {
+        x: 32, opacity: 0, stagger: 0.09, duration: 0.6, ease: 'power2.out',
+        scrollTrigger: { trigger: '.why-items', start: 'top 80%', once: true }
+      });
+      gsap.from('.why-metric', {
+        y: 35, opacity: 0, scale: 0.88, stagger: 0.11, duration: 0.65, ease: 'back.out(1.7)',
+        scrollTrigger: { trigger: '.why-metrics', start: 'top 82%', once: true }
+      });
 
-  /* Coverage: spread open + features slide + card drops */
-  gsap.from('.coverage-grid > :first-child', {
-    x: -60, opacity: 0, duration: 0.95, ease: 'power3.out',
-    scrollTrigger: { trigger: '.coverage-grid', start: 'top 78%', once: true }
-  });
-  gsap.from('.coverage-grid > :last-child', {
-    x: 60, opacity: 0, duration: 0.95, ease: 'power3.out', delay: 0.15,
-    scrollTrigger: { trigger: '.coverage-grid', start: 'top 78%', once: true }
-  });
-  gsap.from('.cov-feat', {
-    y: 28, opacity: 0, stagger: 0.11, duration: 0.65, ease: 'power2.out',
-    scrollTrigger: { trigger: '.cov-features', start: 'top 82%', once: true }
-  });
+      /* Coverage: spread open + features slide + card drops */
+      gsap.from('.coverage-grid > :first-child', {
+        x: -60, opacity: 0, duration: 0.95, ease: 'power3.out',
+        scrollTrigger: { trigger: '.coverage-grid', start: 'top 78%', once: true }
+      });
+      gsap.from('.coverage-grid > :last-child', {
+        x: 60, opacity: 0, duration: 0.95, ease: 'power3.out', delay: 0.15,
+        scrollTrigger: { trigger: '.coverage-grid', start: 'top 78%', once: true }
+      });
+      gsap.from('.cov-feat', {
+        y: 28, opacity: 0, stagger: 0.11, duration: 0.65, ease: 'power2.out',
+        scrollTrigger: { trigger: '.cov-features', start: 'top 82%', once: true }
+      });
 
-  /* Compliance: header cascade + cards stagger-pop */
-  gsap.from('.comp-hdr > *', {
-    y: 38, opacity: 0, stagger: 0.13, duration: 0.78, ease: 'power3.out',
-    scrollTrigger: { trigger: '.comp-hdr', start: 'top 82%', once: true }
-  });
-  gsap.from('.comp-card', {
-    y: 18, opacity: 0, scale: 0.94, stagger: 0.06, duration: 0.68, ease: 'back.out(1.5)',
-    scrollTrigger: { trigger: '.comp-grid', start: 'top 82%', once: true }
-  });
+      /* Compliance: header cascade + cards stagger-pop */
+      gsap.from('.comp-hdr > *', {
+        y: 38, opacity: 0, stagger: 0.13, duration: 0.78, ease: 'power3.out',
+        scrollTrigger: { trigger: '.comp-hdr', start: 'top 82%', once: true }
+      });
+      gsap.from('.comp-card', {
+        y: 18, opacity: 0, scale: 0.94, stagger: 0.06, duration: 0.68, ease: 'back.out(1.5)',
+        scrollTrigger: { trigger: '.comp-grid', start: 'top 82%', once: true }
+      });
 
-  /* Section image reveals: about photo, why photo, service & compliance bands */
-  gsap.utils.toArray('.about-photo, .why-col-photo, .section-band').forEach(function(el) {
-    gsap.from(el, {
-      opacity: 0, scale: 0.97, y: 30, duration: 0.85, ease: 'power3.out',
-      scrollTrigger: { trigger: el, start: 'top 85%', once: true }
-    });
-  });
+      /* Section image reveals: about photo, why photo, service & compliance bands */
+      gsap.utils.toArray('.about-photo, .why-col-photo, .section-band').forEach(function (el) {
+        gsap.from(el, {
+          opacity: 0, scale: 0.97, y: 30, duration: 0.85, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+        });
+      });
 
-  /* Testimonials: header + swiper rise */
-  gsap.from('.testimonials-hdr > *', {
-    y: 35, opacity: 0, stagger: 0.13, duration: 0.78, ease: 'power3.out',
-    scrollTrigger: { trigger: '.testimonials-hdr', start: 'top 82%', once: true }
-  });
-  gsap.from('.t-swiper', {
-    y: 55, opacity: 0, duration: 0.9, ease: 'power3.out',
-    scrollTrigger: { trigger: '.t-swiper', start: 'top 85%', once: true }
-  });
+      /* Testimonials: header + swiper rise */
+      gsap.from('.testimonials-hdr > *', {
+        y: 35, opacity: 0, stagger: 0.13, duration: 0.78, ease: 'power3.out',
+        scrollTrigger: { trigger: '.testimonials-hdr', start: 'top 82%', once: true }
+      });
+      gsap.from('.t-swiper', {
+        y: 55, opacity: 0, duration: 0.9, ease: 'power3.out',
+        scrollTrigger: { trigger: '.t-swiper', start: 'top 85%', once: true }
+      });
 
-  /* CTA: children cascade up */
-  gsap.from('.cta-inner > *', {
-    y: 48, opacity: 0, stagger: 0.14, duration: 0.85, ease: 'power3.out',
-    scrollTrigger: { trigger: '.cta-inner', start: 'top 82%', once: true }
-  });
+      /* CTA: children cascade up */
+      gsap.from('.cta-inner > *', {
+        y: 48, opacity: 0, stagger: 0.14, duration: 0.85, ease: 'power3.out',
+        scrollTrigger: { trigger: '.cta-inner', start: 'top 82%', once: true }
+      });
 
-  /* Contact: spread open + details slide left */
-  gsap.from('.contact-grid > :first-child', {
-    x: -60, opacity: 0, duration: 0.95, ease: 'power3.out',
-    scrollTrigger: { trigger: '.contact-grid', start: 'top 78%', once: true }
-  });
-  gsap.from('.contact-grid > :last-child', {
-    x: 60, opacity: 0, duration: 0.95, ease: 'power3.out', delay: 0.12,
-    scrollTrigger: { trigger: '.contact-grid', start: 'top 78%', once: true }
-  });
-  gsap.from('.ci-item', {
-    x: -30, opacity: 0, stagger: 0.11, duration: 0.62, ease: 'power2.out',
-    scrollTrigger: { trigger: '.ci-list', start: 'top 82%', once: true }
-  });
+      /* Contact: spread open + details slide left */
+      gsap.from('.contact-grid > :first-child', {
+        x: -60, opacity: 0, duration: 0.95, ease: 'power3.out',
+        scrollTrigger: { trigger: '.contact-grid', start: 'top 78%', once: true }
+      });
+      gsap.from('.contact-grid > :last-child', {
+        x: 60, opacity: 0, duration: 0.95, ease: 'power3.out', delay: 0.12,
+        scrollTrigger: { trigger: '.contact-grid', start: 'top 78%', once: true }
+      });
+      gsap.from('.ci-item', {
+        x: -30, opacity: 0, stagger: 0.11, duration: 0.62, ease: 'power2.out',
+        scrollTrigger: { trigger: '.ci-list', start: 'top 82%', once: true }
+      });
 
-  /* ── 7. SWIPER ────────────────────────── */
-  new Swiper('.t-swiper', {
-    slidesPerView: 1,
-    spaceBetween: 24,
-    loop: true,
-    autoplay: { delay: 5500, disableOnInteraction: false, pauseOnMouseEnter: true },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-    breakpoints: { 680: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
-  });
+      /* ── 7. SWIPER ────────────────────────── */
+      new Swiper('.t-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        autoplay: { delay: 5500, disableOnInteraction: false, pauseOnMouseEnter: true },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        breakpoints: { 680: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+      });
 
-  /* ── 8. FORM ──────────────────────────── */
-  var form = document.getElementById('cForm');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-      setTimeout(function () {
-        form.style.display = 'none';
-        document.getElementById('fSuccess').style.display = 'block';
-      }, 900);
-    });
-  }
+      /* ── 8. FORM ──────────────────────────── */
+      var form = document.getElementById('cForm');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var btn = form.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          btn.textContent = 'Sending…';
+          setTimeout(function () {
+            form.style.display = 'none';
+            document.getElementById('fSuccess').style.display = 'block';
+          }, 900);
+        });
+      }
 
-  /* ── 9. SMOOTH ANCHORS ────────────────── */
-  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      var target = document.querySelector(a.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      lenis.scrollTo(target, { offset: -80 });
-    });
-  });
+      /* ── 9. SMOOTH ANCHORS ────────────────── */
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var target = document.querySelector(a.getAttribute('href'));
+          if (!target) return;
+          e.preventDefault();
+          lenis.scrollTo(target, { offset: -80 });
+        });
+      });
 
-}());
-</script>
+    }());
+  </script>
 </body>
+
 </html>
