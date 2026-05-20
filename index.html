@@ -999,13 +999,20 @@
     /* ── COVERAGE ───────────────────────────── */
     .coverage {
       background: #fff;
+      padding: 0; /* grid columns own the vertical spacing */
     }
 
     .coverage-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
+      gap: 0;
+      align-items: stretch;
+    }
+
+    /* Left column: pad so content aligns with the rest of the site */
+    .coverage-grid > :first-child {
+      padding: var(--pad) 3.5rem var(--pad)
+        clamp(2.5rem, calc((100vw - var(--max)) / 2 + 2.5rem), 12rem);
     }
 
     .coverage-body {
@@ -1126,6 +1133,48 @@
       border-radius: 50%;
       background: var(--teal);
       flex-shrink: 0;
+    }
+
+    /* ── HOUSTON MAP ────────────────────────── */
+    .map-cov-card {
+      background: #f2f7fb;
+      padding: 100px;
+      border-radius: 1px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    .houston-map-wrap {
+      flex: 1;
+      margin-top: 1.25rem;
+      overflow: hidden;
+      border-radius: 1px;
+      min-height: 380px;
+    }
+
+    .houston-map-svg { width: 100%; height: auto; display: block; }
+
+    .map-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      fill: #1a3348;
+      letter-spacing: 0.02em;
+      pointer-events: none;
+    }
+
+    .map-label--main {
+      font-size: 12.5px;
+      fill: #0b1e2e;
+      font-weight: 600;
+    }
+
+    .map-road-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      fill: rgba(26,50,72,0.45);
+      letter-spacing: 0.08em;
     }
 
     /* ── COMPLIANCE ─────────────────────────── */
@@ -1713,7 +1762,17 @@
 
       .coverage-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 0;
+      }
+
+      .coverage-grid > :first-child {
+        padding: 4rem 2.5rem;
+      }
+
+      .map-cov-card {
+        border-radius: 1px;
+        padding: 20px;
+        min-height: 420px;
       }
 
       .contact-grid {
@@ -2168,8 +2227,7 @@
 
   <!-- COVERAGE -->
   <section class="coverage section" id="coverage">
-    <div class="wrap">
-      <div class="coverage-grid">
+    <div class="coverage-grid">
 
         <!-- Left -->
         <div>
@@ -2206,39 +2264,135 @@
           </div>
         </div>
 
-        <!-- Right: navy card -->
+        <!-- Right: Houston map card -->
         <div>
-          <div class="cov-card">
-            <span class="cov-card-lbl">Areas We Serve</span>
-            <div class="chips">
-              <span class="chip">Downtown Houston</span>
-              <span class="chip">Texas Medical Center</span>
-              <span class="chip">Katy</span>
-              <span class="chip">Sugar Land</span>
-              <span class="chip">The Woodlands</span>
-              <span class="chip">Pearland</span>
-              <span class="chip">Pasadena</span>
-              <span class="chip">League City</span>
-              <span class="chip">Baytown</span>
-              <span class="chip">Stafford</span>
-              <span class="chip">Missouri City</span>
-              <span class="chip">Spring</span>
-            </div>
-            <span class="fac-lbl">Key Facilities in Our Network</span>
-            <div class="fac-list">
-              <div class="fac-item">Memorial Hermann</div>
-              <div class="fac-item">UTHealth Houston</div>
-              <div class="fac-item">Houston Methodist</div>
-              <div class="fac-item">HCA Houston</div>
-              <div class="fac-item">CHI St. Luke's</div>
-              <div class="fac-item">Kelsey-Seybold</div>
-              <div class="fac-item">Harris Health</div>
-              <div class="fac-item">MD Anderson Area</div>
+          <div class="cov-card map-cov-card">
+            <span class="cov-card-lbl">Houston Service Coverage</span>
+            <div class="houston-map-wrap">
+              <svg class="houston-map-svg" viewBox="-25 -20 555 450" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <filter id="node-glow" x="-80%" y="-80%" width="260%" height="260%">
+                    <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+
+                <!-- Background -->
+                <rect x="-25" y="-20" width="555" height="450" fill="#f2f7fb"/>
+
+                <!-- ── COVERAGE ZONES (concentric rings from downtown) ── -->
+                <ellipse cx="272" cy="240" rx="228" ry="172" fill="rgba(11,143,130,0.04)" stroke="rgba(11,143,130,0.09)" stroke-width="1"/>
+                <ellipse cx="272" cy="236" rx="158" ry="118" fill="rgba(11,143,130,0.05)" stroke="rgba(11,143,130,0.11)" stroke-width="1" stroke-dasharray="5,4"/>
+                <ellipse cx="272" cy="232" rx="95" ry="76" fill="rgba(11,143,130,0.07)" stroke="rgba(11,143,130,0.14)" stroke-width="1"/>
+                <ellipse cx="269" cy="229" rx="50" ry="42" fill="rgba(11,143,130,0.10)" stroke="rgba(11,143,130,0.20)" stroke-width="1.5"/>
+
+                <!-- ── ROADS ── -->
+
+                <!-- I-10 east-west -->
+                <path d="M 50,218 Q 175,222 272,228 Q 355,233 450,240"
+                      fill="none" stroke="#b8c8d8" stroke-width="3" stroke-linecap="round"/>
+
+                <!-- I-45 North -->
+                <path d="M 272,228 Q 264,163 257,93 L 250,57"
+                      fill="none" stroke="#b8c8d8" stroke-width="2.5" stroke-linecap="round"/>
+
+                <!-- I-45 South -->
+                <path d="M 272,228 Q 296,270 308,313 Q 342,326 382,334"
+                      fill="none" stroke="#b8c8d8" stroke-width="2.5" stroke-linecap="round"/>
+
+                <!-- US-59 / I-69 SW -->
+                <path d="M 272,228 Q 245,258 202,288 Q 188,289 166,287"
+                      fill="none" stroke="#c8d6e2" stroke-width="2" stroke-linecap="round"/>
+
+                <!-- SH-288 -->
+                <path d="M 272,228 Q 284,268 306,313"
+                      fill="none" stroke="#c8d6e2" stroke-width="2" stroke-linecap="round"/>
+
+                <!-- I-10 East -->
+                <path d="M 272,228 Q 352,233 428,238"
+                      fill="none" stroke="#c8d6e2" stroke-width="2" stroke-linecap="round"/>
+
+                <!-- SH-6 -->
+                <path d="M 90,217 Q 128,252 166,287"
+                      fill="none" stroke="#d8e4ec" stroke-width="1.5" stroke-linecap="round"/>
+
+                <!-- SH-225 Pasadena connector -->
+                <path d="M 272,228 Q 305,243 336,257"
+                      fill="none" stroke="#d8e4ec" stroke-width="1.5" stroke-linecap="round"/>
+
+                <!-- Road labels -->
+                <text x="155" y="215" class="map-road-lbl">I-10</text>
+                <text x="260" y="148" class="map-road-lbl">I-45</text>
+                <text x="216" y="243" class="map-road-lbl" transform="rotate(-20,216,243)">I-610</text>
+                <text x="120" y="155" class="map-road-lbl">BELTWAY 8</text>
+
+                <!-- ── LOCATION NODES ── -->
+
+                <!-- Downtown Houston — hub with pulse -->
+                <circle cx="272" cy="228" r="12" fill="none" stroke="rgba(11,143,130,0.40)" stroke-width="1.5">
+                  <animate attributeName="r" values="12;32" dur="2.6s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.55;0" dur="2.6s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="272" cy="228" r="12" fill="none" stroke="rgba(11,143,130,0.25)" stroke-width="1.5">
+                  <animate attributeName="r" values="12;32" dur="2.6s" begin="1.3s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.40;0" dur="2.6s" begin="1.3s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="272" cy="228" r="9" fill="rgba(11,143,130,0.18)" filter="url(#node-glow)"/>
+                <circle cx="272" cy="228" r="7" fill="#0b8f82" stroke="white" stroke-width="2"/>
+                <text x="284" y="223" class="map-label map-label--main">Downtown Houston</text>
+
+                <!-- Texas Medical Center -->
+                <circle cx="258" cy="253" r="5" fill="#0b8f82" stroke="white" stroke-width="1.5" opacity="0.9"/>
+                <text x="248" y="269" class="map-label" text-anchor="middle">TMC</text>
+
+                <!-- The Woodlands -->
+                <circle cx="250" cy="57" r="5.5" fill="#0b8f82" stroke="white" stroke-width="1.5" opacity="0.88"/>
+                <text x="260" y="52" class="map-label">The Woodlands</text>
+
+                <!-- Spring -->
+                <circle cx="257" cy="93" r="4.5" fill="#0b8f82" stroke="white" stroke-width="1.5" opacity="0.84"/>
+                <text x="266" y="88" class="map-label">Spring</text>
+
+                <!-- Katy -->
+                <circle cx="90" cy="217" r="5.5" fill="#0b8f82" stroke="white" stroke-width="1.5" opacity="0.88"/>
+                <text x="100" y="212" class="map-label">Katy</text>
+
+                <!-- Baytown -->
+                <circle cx="428" cy="238" r="5.5" fill="#0b8f82" stroke="white" stroke-width="1.5" opacity="0.88"/>
+                <text x="438" y="234" class="map-label">Baytown</text>
+
+                <!-- Pasadena -->
+                <circle cx="336" cy="257" r="4.5" fill="#0b8f82" stroke="white" stroke-width="1.5" opacity="0.84"/>
+                <text x="345" y="252" class="map-label">Pasadena</text>
+
+                <!-- Sugar Land -->
+                <circle cx="166" cy="287" r="5.5" fill="#0b8f82" stroke="white" stroke-width="1.5" opacity="0.88"/>
+                <text x="175" y="282" class="map-label">Sugar Land</text>
+
+                <!-- Stafford -->
+                <circle cx="196" cy="292" r="4.5" fill="#0b8f82" stroke="white" stroke-width="1.5" opacity="0.84"/>
+                <text x="188" y="285" class="map-label" text-anchor="end">Stafford</text>
+
+                <!-- Missouri City -->
+                <circle cx="210" cy="304" r="4.5" fill="#0b8f82" stroke="white" stroke-width="1.5" opacity="0.84"/>
+                <text x="219" y="308" class="map-label">Missouri City</text>
+
+                <!-- Pearland -->
+                <circle cx="306" cy="313" r="5.5" fill="#0b8f82" stroke="white" stroke-width="1.5" opacity="0.88"/>
+                <text x="316" y="308" class="map-label">Pearland</text>
+
+                <!-- League City -->
+                <circle cx="382" cy="334" r="5.5" fill="#0b8f82" stroke="white" stroke-width="1.5" opacity="0.88"/>
+                <text x="392" y="330" class="map-label">League City</text>
+
+                <!-- Legend -->
+                <circle cx="18" cy="366" r="4.5" fill="#0b8f82" stroke="white" stroke-width="1.5" opacity="0.84"/>
+                <text x="28" y="370" class="map-road-lbl">SERVICE AREA NODE</text>
+              </svg>
             </div>
           </div>
         </div>
 
-      </div>
     </div>
   </section>
 
